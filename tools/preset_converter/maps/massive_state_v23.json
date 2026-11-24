@@ -1,0 +1,18 @@
+{
+ "profile": "massive-state-v23",
+ "state_version": 23,
+ "description": "Original NI Massive preset state, version 23 (seen in a Massive 1.0.0.0 init preset). No parameter has been mapped from a controlled experiment yet, so nothing is applied: every value is preserved in the IR and listed as unsupported. Fill float_params from differential captures (tools/preset_decoder/nmsv_diff.py, docs/MASSIVE_PRESET_FORMAT.md).",
+ "float_params": [],
+ "modulation": [],
+ "candidates_not_applied": [
+  {"indices": [94, 95, 96, 97], "observation": "four near-equal values 0.0859..0.0889 in the init preset: a per-envelope or per-LFO group of four", "status": "hypothesis"},
+  {"indices": [120, 121, 122, 123], "observation": "four near-equal values 0.151..0.154: another group of four", "status": "hypothesis"},
+  {"indices": [78, 79, 80, 81], "observation": "four 1.0 values after a run of zeros", "status": "hypothesis"},
+  {"section": "tail at 0x228", "observation": "repeated records 'u32 count(2), u32 128, u32 128, u32 5, five (x,y) float pairs': 5-point curve tables, perhaps envelope shapes or performer steps", "status": "hypothesis"},
+  {"section": "macro names", "observation": "eight u32-length ASCII labels '1 Vibrato', '2' .. '8': the macro knobs' names", "status": "verified in one file"},
+  {"section": "after macro names", "observation": "records with an index (8, 9, 10, ...), 3, 1.0f and -1 (0xFFFFFFFF) fields: modulation assignments, -1 = empty", "status": "hypothesis"}
+ ],
+ "notes": [
+  "Massive parameter mapping not yet established: needs Massive and the differential workflow"
+ ]
+}

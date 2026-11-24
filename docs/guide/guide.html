@@ -1,0 +1,1538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Atomic Lounge User Guide</title>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<!-- ============================================================== COVER === -->
+<section class="cover">
+  <div class="sun"></div>
+  <h1>ATOMIC<br><span>LOUNGE</span></h1>
+  <div class="sub">How to use it: on Windows, on the FM-1 and on an Android tablet</div>
+  <div class="stripe"><div style="background:#fa882c"></div><div style="background:#f2c02e"></div><div style="background:#a4c440"></div><div style="background:#30baac"></div></div>
+  <div class="art"><!--INCLUDE panel--></div>
+  <div class="foot"><b>Atomic Lounge</b> is free, open-source synthesizer software: three classic oscillators, two filters,
+  four envelopes, four LFO / Performer / Stepper modulators, eight macros and six vintage effects.
+  It runs on Windows (VST3 plugin and standalone app, version 1.2.1, with the REGOLITH synth and the ORBIT poly-convolution engine),
+  on the M-VAVE FM-1 keyboard (as replacement firmware) and on Android tablets (as an app).
+  User guide, 22 November 2026. Free software: GPL-3.0 (firmware, app), AGPL-3.0 (Windows VST3 and standalone).</div>
+</section>
+
+<!-- =========================================================== CONTENTS === -->
+<section class="toc">
+<h2 class="chapter" style="break-before:auto">Contents</h2>
+<div class="toc-part">GETTING STARTED</div>
+<a class="toc-row" href="#what"><span class="n">1</span><span class="ti">What Atomic Lounge is</span><span class="dots"></span><span class="pg" data-for="what"></span></a>
+<div class="toc-part">PART 1 &middot; THE SOUND ENGINE (FM-1 AND TABLET)</div>
+<a class="toc-row" href="#flow"><span class="n">2</span><span class="ti">How a sound is made</span><span class="dots"></span><span class="pg" data-for="flow"></span></a>
+<a class="toc-row" href="#osc"><span class="n">3</span><span class="ti">Oscillators, mod oscillator and noise</span><span class="dots"></span><span class="pg" data-for="osc"></span></a>
+<a class="toc-row" href="#filters"><span class="n">4</span><span class="ti">Filters and routing</span><span class="dots"></span><span class="pg" data-for="filters"></span></a>
+<a class="toc-row" href="#env"><span class="n">5</span><span class="ti">Envelopes ENV 1-4</span><span class="dots"></span><span class="pg" data-for="env"></span></a>
+<a class="toc-row" href="#mods"><span class="n">6</span><span class="ti">Modulators 5-8: LFO, Performer, Stepper</span><span class="dots"></span><span class="pg" data-for="mods"></span></a>
+<a class="toc-row" href="#fx"><span class="n">7</span><span class="ti">Effects</span><span class="dots"></span><span class="pg" data-for="fx"></span></a>
+<a class="toc-row" href="#modconcepts"><span class="n">8</span><span class="ti">Modulation, macros and voices</span><span class="dots"></span><span class="pg" data-for="modconcepts"></span></a>
+<div class="toc-part">PART 2 &middot; ON THE FM-1</div>
+<a class="toc-row" href="#install"><span class="n">9</span><span class="ti">Installing (and going back to V15)</span><span class="dots"></span><span class="pg" data-for="install"></span></a>
+<a class="toc-row" href="#tour"><span class="n">10</span><span class="ti">Panel tour</span><span class="dots"></span><span class="pg" data-for="tour"></span></a>
+<a class="toc-row" href="#playing"><span class="n">11</span><span class="ti">Playing</span><span class="dots"></span><span class="pg" data-for="playing"></span></a>
+<a class="toc-row" href="#pages"><span class="n">12</span><span class="ti">Editing a sound, page by page</span><span class="dots"></span><span class="pg" data-for="pages"></span></a>
+<a class="toc-row" href="#fm1mod"><span class="n">13</span><span class="ti">Modulation on the FM-1, step by step</span><span class="dots"></span><span class="pg" data-for="fm1mod"></span></a>
+<a class="toc-row" href="#saving"><span class="n">14</span><span class="ti">Saving, slots, undo and redo</span><span class="dots"></span><span class="pg" data-for="saving"></span></a>
+<a class="toc-row" href="#seq"><span class="n">15</span><span class="ti">The step sequencer</span><span class="dots"></span><span class="pg" data-for="seq"></span></a>
+<div class="toc-part">PART 3 &middot; ON THE TABLET</div>
+<a class="toc-row" href="#tabinstall"><span class="n">16</span><span class="ti">Installing the Android app</span><span class="dots"></span><span class="pg" data-for="tabinstall"></span></a>
+<a class="toc-row" href="#tabpanel"><span class="n">17</span><span class="ti">The tablet panel</span><span class="dots"></span><span class="pg" data-for="tabpanel"></span></a>
+<a class="toc-row" href="#tabplay"><span class="n">18</span><span class="ti">Playing the tablet</span><span class="dots"></span><span class="pg" data-for="tabplay"></span></a>
+<div class="toc-part">PART 4 &middot; ON WINDOWS: VST3, STANDALONE AND ORBIT</div>
+<a class="toc-row" href="#win"><span class="n">19</span><span class="ti">Atomic Lounge on Windows</span><span class="dots"></span><span class="pg" data-for="win"></span></a>
+<a class="toc-row" href="#orbit"><span class="n">20</span><span class="ti">ORBIT: the idea</span><span class="dots"></span><span class="pg" data-for="orbit"></span></a>
+<a class="toc-row" href="#dims"><span class="n">21</span><span class="ti">The five dimensions</span><span class="dots"></span><span class="pg" data-for="dims"></span></a>
+<a class="toc-row" href="#blender"><span class="n">22</span><span class="ti">The orbit blender</span><span class="dots"></span><span class="pg" data-for="blender"></span></a>
+<a class="toc-row" href="#orbitmod"><span class="n">23</span><span class="ti">Modulation and macros in ORBIT</span><span class="dots"></span><span class="pg" data-for="orbitmod"></span></a>
+<a class="toc-row" href="#orbitpresets"><span class="n">24</span><span class="ti">The ORBIT factory presets</span><span class="dots"></span><span class="pg" data-for="orbitpresets"></span></a>
+<a class="toc-row" href="#samples"><span class="n">25</span><span class="ti">Samples, projects and latency</span><span class="dots"></span><span class="pg" data-for="samples"></span></a>
+<a class="toc-row" href="#organic"><span class="n">26</span><span class="ti">Tips for organic sound design</span><span class="dots"></span><span class="pg" data-for="organic"></span></a>
+<a class="toc-row" href="#input"><span class="n">27</span><span class="ti">Live input: other tracks through ORBIT</span><span class="dots"></span><span class="pg" data-for="input"></span></a>
+<div class="toc-part">PART 5 &middot; SHARED TOOLS AND REFERENCE</div>
+<a class="toc-row" href="#convert"><span class="n">28</span><span class="ti">Converting Massive presets</span><span class="dots"></span><span class="pg" data-for="convert"></span></a>
+<a class="toc-row" href="#midi"><span class="n">29</span><span class="ti">MIDI</span><span class="dots"></span><span class="pg" data-for="midi"></span></a>
+<a class="toc-row" href="#trouble"><span class="n">30</span><span class="ti">Troubleshooting</span><span class="dots"></span><span class="pg" data-for="trouble"></span></a>
+<a class="toc-row" href="#qref"><span class="n">31</span><span class="ti">Quick-reference card (FM-1)</span><span class="dots"></span><span class="pg" data-for="qref"></span></a>
+<a class="toc-row" href="#credits"><span class="n">32</span><span class="ti">Credits, licences and trademarks</span><span class="dots"></span><span class="pg" data-for="credits"></span></a>
+
+<div class="callout note" style="margin-top:18pt"><span class="t">How to read this guide</span>
+Part 1 explains the sound engine, which is the same on the FM-1, on the tablet and in REGOLITH mode on Windows. Parts 2 and 3 show
+the controls of each. Part 4 covers the Windows plugin and app and their second engine, ORBIT. Panel buttons are shown like <span class="btn">HOME</span>, knobs like
+<span class="knob">PRESETS</span>, words on the FM-1 screen like <span class="scr">SLOT 01</span> and tablet
+controls like <span class="tab">MATRIX</span>.</div>
+</section>
+
+<!-- ================================================================ 1 === -->
+<h2 class="chapter" id="what"><span class="num">1</span>What Atomic Lounge is</h2>
+<p class="lede" style="margin-bottom:6pt"><b>Atomic Lounge (formerly Vintage Chonk)</b> is a warm, modern-classic synthesizer you can play on
+two kinds of hardware and on Windows. Its layout follows a
+famous wavetable soft synth's way of working; its sound and looks come from 1970s analogue instruments. On Windows the synthesizer
+is called <b>REGOLITH</b>, the steady ground under ORBIT, its second engine. The FM-1 firmware and the Android app have not been renamed
+yet: their screens, install pages and app list still say <i>Vintage Chonk</i>, and this guide quotes them as they are.</p>
+
+<div class="grid2" style="font-size:9.6pt;line-height:1.4">
+<div>
+<h4 style="margin-top:4pt">The sound engine</h4>
+<ul>
+<li><b>3 oscillators</b> with eight classic analogue-style waveforms (triangle, "shark", reverse saw, saw, square and three pulses), footage ranges 64' to 1', fine tune and a phase-bend <b>intensity</b>.</li>
+<li>A <b>mod oscillator</b> for ring, phase and wave-position modulation, and a <b>noise</b> source with colour.</li>
+<li><b>2 filters</b>: LADDER (classic 24 dB transistor ladder), ACID (303-style diode ladder), LP4, LP2, HP, BP, NOTCH. Serial, parallel or anything between.</li>
+<li><b>4 envelopes</b> with delay, attack level, decay level, sustain time and loop. ENV 4 shapes the loudness.</li>
+<li><b>4 modulators (slots 5-8)</b>, each an <b>LFO</b>, a 16-step <b>Performer</b> (32 curve shapes) or a 16-step <b>Stepper</b>.</li>
+<li><b>16 modulation routings</b>, <b>8 macros</b>, velocity, key, mod wheel, aftertouch, bend and random as sources.</li>
+<li><b>6 effects</b> in a fixed chain: OCT FUZZ, TAPE, ENSEMBLE, BBD ECHO, OIL CAN, REVERB (TWIN TANK or SPRING); both echoes can sync to the tempo.</li>
+<li>On the FM-1: a <b>mono step sequencer</b> for basslines and acid lines, with accent, slide and MIDI clock.</li>
+</ul>
+</div>
+<div>
+<h4>Where it runs</h4>
+<table>
+<thead><tr><th></th><th>M-VAVE FM-1</th><th>Android tablet</th></tr></thead>
+<tbody>
+<tr><td class="k">Form</td><td>Replacement firmware</td><td>App (APK)</td></tr>
+<tr><td class="k">Voices</td><td>up to 8</td><td>up to 16</td></tr>
+<tr><td class="k">Controls</td><td>Knobs, buttons, 27 keys, 240&times;240 screen</td><td>Touch panel, 37-key touch keyboard, wheels</td></tr>
+<tr><td class="k">Presets</td><td>64 slots</td><td>Factory list + your own, by name</td></tr>
+<tr><td class="k">Massive import</td><td>Through the browser converter</td><td>Built in (<span class="tab">IMPORT .NMSV</span>)</td></tr>
+<tr><td class="k">Undo</td><td>16 steps</td><td>None</td></tr>
+<tr><td class="k">Sequencer</td><td>Mono, 8 patterns</td><td>None</td></tr>
+</tbody></table>
+<h4>What you need</h4>
+<ul>
+<li><b>For the FM-1:</b> an M-VAVE FM-1 running M-VAVE's V15 firmware, a USB-C data cable, and a Windows, Mac or Linux computer with <b>Chrome or Edge</b> (for Web MIDI).</li>
+<li><b>For the tablet:</b> an Android tablet with Android 8.0 or newer (Amazon Fire tablets work), and a computer with <code>adb</code> to install the app.</li>
+<li><b>Optional:</b> a USB MIDI keyboard, headphones or a mixer, and Native Instruments Massive presets (.nmsv) to convert.</li>
+</ul>
+</div>
+</div>
+
+<div class="callout warn"><span class="t">Before you start</span>
+Installing the firmware on the FM-1 replaces M-VAVE's firmware and everything stored by it. Back up first with
+M-VAVE's own tools, and read chapter 9 to the end, including the recovery section.</div>
+
+<!-- ============================================================ PART 1 === -->
+<section class="part">
+  <div class="stripe"><div style="background:#fa882c"></div><div style="background:#f2c02e"></div><div style="background:#a4c440"></div><div style="background:#30baac"></div></div>
+  <div class="no">PART 1</div>
+  <h1>The sound engine</h1>
+  <p>Everything in this part is the same on the FM-1 and on the tablet. Learn the ideas once, then use
+  whichever instrument is in front of you.</p>
+  <img src="img/fm1/filter1_mods.png" style="width:2.6in;image-rendering:pixelated">
+</section>
+
+<!-- ================================================================ 2 === -->
+<h2 class="chapter" id="flow"><span class="num">2</span>How a sound is made</h2>
+<p class="lede">Sound flows left to right: sources, filters, the amplifier, then the effects. Modulators move
+the knobs while you play.</p>
+<figure><!--INCLUDE flow--><figcaption>The signal path. Each source has a route control that sends it to filter 1, filter 2 or a blend of both.</figcaption></figure>
+
+<ol class="steps">
+<li><b>Sources.</b> Up to three oscillators and a noise generator make the raw tone. The mod oscillator does not make sound itself; it changes the oscillators.</li>
+<li><b>Filters.</b> Each source goes to filter 1, filter 2 or a blend of both. The filters can run side by side (parallel), one into the other (serial), or anywhere between.</li>
+<li><b>Amplifier.</b> ENV 4 opens and closes the volume for each note. Velocity sensitivity and the master level apply here.</li>
+<li><b>Effects.</b> The mixed sound passes through six effects, always in the same order. An effect at zero is switched off completely.</li>
+<li><b>Modulation.</b> Envelopes, modulators 5-8, macros and performance sources (velocity, key, wheels, aftertouch, random) can move many knobs. Up to 16 such routings per sound.</li>
+</ol>
+
+<div class="callout tip"><span class="t">Start from INIT</span>
+The initial sound (<span class="scr">INIT SAW</span> on the FM-1, <span class="tab">INIT</span> on the tablet) is one saw
+oscillator through an open low-pass filter. It is the best place to learn: change one thing, listen, change the next.</div>
+
+<!-- ================================================================ 3 === -->
+<h2 class="chapter" id="osc"><span class="num">3</span>Oscillators, mod oscillator and noise</h2>
+<h3>The three oscillators</h3>
+<p>Oscillator 1 is on in a new sound; oscillators 2 and 3 are off until you switch them on. Each has these controls:</p>
+<table>
+<thead><tr><th>Control</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td class="k">On / off</td><td>Switches the oscillator on.</td></tr>
+<tr><td class="k">Wave</td><td>Picks one of eight classic analogue waveforms: <b>triangle</b>, <b>shark</b> (between triangle and saw), <b>reverse saw</b>, <b>saw</b>, <b>square</b>, <b>pulse 30 %</b>, <b>pulse 12 %</b>, <b>pulse 6 %</b>. The narrower the pulse, the thinner and more nasal the tone.</td></tr>
+<tr><td class="k">Range</td><td>The octave, in organ footage: 64', 32', 16', 8' (normal pitch), 4', 2', 1'. Lower footage numbers sound higher.</td></tr>
+<tr><td class="k">Tune / pitch</td><td>Semitones above or below the range.</td></tr>
+<tr><td class="k">Fine</td><td>&plusmn;100 cents. Detune two oscillators a few cents for a thick, beating sound.</td></tr>
+<tr><td class="k">Intensity</td><td>Bends the waveform's phase, which brightens and reshapes it. (An approximation of the intensity control of the soft synth this layout follows.)</td></tr>
+<tr><td class="k">Amp</td><td>The oscillator's level in the mix.</td></tr>
+<tr><td class="k">Route (F1 &middot; F2)</td><td>Sends the oscillator to filter 1, filter 2, or a blend (the FM-1 shows, for example, <span class="scr">50:50</span>).</td></tr>
+</tbody></table>
+<div class="callout note"><span class="t">Wavetables on the FM-1</span>
+To fit its memory, the FM-1 build carries only the eight classic waveforms. <span class="knob">PRESETS</span> on an
+oscillator page still steps through table names (CLASSIC, BASIC, PWM, SYNC, FORMANT, ORGAN, SQUASH), but on the FM-1 every
+table plays the classic set: keep <span class="scr">CLASSIC</span>, and <b>WAVE</b> steps neatly through the eight shapes.
+The tablet always uses the classic waveforms.</div>
+
+<div class="grid2 wide" style="grid-template-columns:1.5fr 1fr;margin-top:12pt">
+<div>
+<h3 style="margin-top:0">The mod oscillator</h3>
+<p>A sine wave that follows the note, tuned with its own <b>pitch</b> (&plusmn;48 semitones from the note). It has three jobs, each with an amount and a target oscillator (off, OSC 1, OSC 2 or OSC 3):</p>
+<table class="free">
+<thead><tr><th>Job</th><th>Sound</th></tr></thead>
+<tbody>
+<tr><td class="k">Ring</td><td>Ring modulation: metallic, bell-like sidebands.</td></tr>
+<tr><td class="k">Phase</td><td>Phase modulation: FM-style brightness and bite.</td></tr>
+<tr><td class="k">Position (wave)</td><td>Wobbles the target's waveform position at audio rate.</td></tr>
+
+</tbody></table>
+
+</div><div>
+<h3 style="margin-top:0">Noise</h3>
+<p><b>Colour</b> (dark to bright), <b>amp</b> (level) and <b>route</b> (filter 1 to filter 2). A touch of noise adds breath to leads and pads.</p>
+<p class="small"><b>Filter FM</b> (mod oscillator to a filter) is stored with the sound but <b>not heard yet</b>; the FM-1 says <span class="scr">FILTER FM: STORED, NOT RENDERED YET</span>.</p>
+<p class="small dim">On the tablet the panel also shows a FEEDBACK section, which is greyed out ("not in this engine version yet"), and a DRIFT knob (ANALOG) for slow per-voice pitch drift.</p>
+</div></div>
+
+<!-- ================================================================ 4 === -->
+<h2 class="chapter" id="filters"><span class="num">4</span>Filters and routing</h2>
+<p class="lede">Two filters, each with its own type, cutoff, resonance, drive and key tracking.</p>
+<table>
+<thead><tr><th>Type</th><th>Character</th></tr></thead>
+<tbody>
+<tr><td class="k">LADDER</td><td>Classic 24 dB/octave transistor ladder: four poles, resonance feedback and input saturation. Sings and self-oscillates at full resonance.</td></tr>
+<tr><td class="k">ACID</td><td>303-style diode ladder: about 18 dB/octave, hotter saturation, and the bass stays full at high resonance. Squelchy basslines.</td></tr>
+<tr><td class="k">LP4</td><td>Clean 4-pole low-pass.</td></tr>
+<tr><td class="k">LP2</td><td>Gentle 2-pole low-pass: more of the top end stays.</td></tr>
+<tr><td class="k">HP</td><td>High-pass: removes lows. Thins pads, makes room in a mix.</td></tr>
+<tr><td class="k">BP</td><td>Band-pass: only a band around the cutoff. Nasal, vocal, telephone tones.</td></tr>
+<tr><td class="k">NOTCH</td><td>Cuts a narrow band around the cutoff. Phaser-like when the cutoff moves.</td></tr>
+<tr><td class="k">OFF</td><td>No filtering. Filter 2 is OFF in a new sound.</td></tr>
+</tbody></table>
+<table>
+<thead><tr><th>Control</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td class="k">Cutoff</td><td>The filter's frequency, about 8 Hz to 21 kHz (the FM-1 shows Hz).</td></tr>
+<tr><td class="k">Resonance</td><td>Called <b>RESO</b> on the FM-1 and <b>EMPHASIS</b> on the tablet. Boosts frequencies at the cutoff.</td></tr>
+<tr><td class="k">Drive</td><td>Pushes the filter input up to 8 times harder into a soft clip: warmer, then grittier.</td></tr>
+<tr><td class="k">Key track</td><td>&minus;100 % to +100 %. At +100 % the cutoff follows the keyboard one to one, so high notes stay as bright as low ones.</td></tr>
+</tbody></table>
+<h3>Routing</h3>
+<ul>
+<li><b>SER / PAR</b> blends from <b>parallel</b> (both filters side by side) to <b>serial</b> (filter 1 feeds filter 2). In between, a mix of both.</li>
+<li><b>F1 MIX</b> and <b>F2 MIX</b> set each filter's output level.</li>
+<li>Each source's own route (OSC 1-3, NOISE) decides which filter it enters.</li>
+</ul>
+<div class="callout tip"><span class="t">Two classic filter set-ups</span>
+<b>Fat bass:</b> both oscillators to F1, F1 = LADDER, SER/PAR at PAR, F2 MIX at zero.
+<b>Vowel sweep:</b> SER/PAR at SER, F1 = LP2, F2 = BP, and modulate both cutoffs from one envelope.</div>
+
+<!-- ================================================================ 5 === -->
+<h2 class="chapter" id="env"><span class="num">5</span>Envelopes ENV 1-4</h2>
+<p class="lede">An envelope draws a shape each time you press a key. ENV 4 always controls the loudness; ENV 1-3 are free for anything you route them to.</p>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/env1.png"><figcaption>ENV 1 on the FM-1. The highlighted stages are the ones on the knobs.</figcaption></figure>
+<div>
+<table>
+<thead><tr><th>Stage</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td class="k">Delay</td><td>Wait before the envelope starts.</td></tr>
+<tr><td class="k">Attack</td><td>Time to rise to the attack level.</td></tr>
+<tr><td class="k">Attack level</td><td>How high the attack goes.</td></tr>
+<tr><td class="k">Decay</td><td>Time to fall to the decay level.</td></tr>
+<tr><td class="k">Decay level</td><td>Where the decay stops. On the FM-1, turned fully down it reads <span class="scr">=SUS</span>: a plain ADSR.</td></tr>
+<tr><td class="k">Sustain time</td><td>Time to move from the decay level to the sustain level.</td></tr>
+<tr><td class="k">Sustain</td><td>The level held while the key is down.</td></tr>
+<tr><td class="k">Release</td><td>Time to fade after the key is let go.</td></tr>
+<tr><td class="k">Loop</td><td>Repeats the envelope while the key is held: a rhythmic, LFO-like shape.</td></tr>
+</tbody></table>
+<p class="small">All times run from 0.5 ms to 30 s on an exponential scale, so small times are easy to set precisely.</p>
+</div></div>
+<div class="callout tip"><span class="t">Pluck in four moves</span>
+On ENV 4: attack 0, decay short, sustain 0, release short. Then route ENV 1 (same shape) to filter 1 cutoff with a positive depth, and set the cutoff low.</div>
+
+<!-- ================================================================ 6 === -->
+<h2 class="chapter" id="mods"><span class="num">6</span>Modulators 5-8: LFO, Performer, Stepper</h2>
+<p class="lede">Four modulator slots, numbered 5 to 8. Each slot is one of three kinds, and you can switch kinds at any time.
+Switching keeps the data of the other kinds, so nothing is lost.</p>
+<div class="grid3">
+<figure><img class="screen sm" src="img/fm1/lfo5.png"><figcaption><b>LFO</b>: a repeating wave.</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/perf6.png"><figcaption><b>Performer</b>: 16 steps, each a curve.</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/stepper7.png"><figcaption><b>Stepper</b>: 16 levels with glide.</figcaption></figure>
+</div>
+<h3>LFO</h3>
+<table><tbody>
+<tr><td class="k">Rate</td><td>0.02 Hz to 40 Hz, or, with sync on, a note division: 1/32, 1/16T, 1/16, 1/8T, 3/32, 1/8, 1/4T, 3/16, 1/4, 3/8, 1/2, 1 bar, 2 bars.</td></tr>
+<tr><td class="k">Wave</td><td>Sine, triangle, saw up, saw down, square, sample-and-hold.</td></tr>
+<tr><td class="k">Phase</td><td>Where in the cycle the LFO starts when key sync is on.</td></tr>
+<tr><td class="k">Sync</td><td>Rate follows the tempo instead of Hz.</td></tr>
+<tr><td class="k">Key sync / retrig</td><td>Restart the wave with each note.</td></tr>
+<tr><td class="k">Unipolar</td><td>Move only upwards from the knob's position, instead of up and down around it.</td></tr>
+</tbody></table>
+<h3>Performer</h3>
+<p>Sixteen steps. Each step has a <b>shape</b> (one of 32 curves: rises, falls, ramps, bumps, holds and more; shapes 1-16
+recreate a classic soft-synth Performer library and 17-32 are Atomic Lounge's own) and a <b>level</b> (&minus;100 to +100).
+<b>Loop start</b> and <b>loop end</b> choose which steps play. Rate (one step per cycle), sync, key sync and unipolar work as on the LFO.</p>
+<h3>Stepper</h3>
+<p>Sixteen <b>values</b> (&minus;100 to +100) played in turn, with <b>glide</b> between steps and the same loop, rate and sync controls:
+rhythmic filter patterns, arpeggio-like pitch jumps, gated volume.</p>
+<div class="callout note"><span class="t">Tempo</span>
+Synced modulators and echoes follow the tempo: on the FM-1 the step sequencer's tempo (40-240 BPM) or incoming MIDI clock
+(chapter 15); on the tablet a fixed 120 BPM.</div>
+
+<!-- ================================================================ 7 === -->
+<h2 class="chapter" id="fx"><span class="num">7</span>Effects</h2>
+<p class="lede">Six effects, always in this order. Each one is off (and uses no processing) when its first control is at zero.</p>
+<p style="text-align:center;font-family:Righteous;font-size:12pt;color:#542c3c">OCT FUZZ &rarr; TAPE &rarr; ENSEMBLE &rarr; BBD ECHO &rarr; OIL CAN &rarr; REVERB</p>
+<table>
+<thead><tr><th>Effect</th><th>Sound</th><th>FM-1 knobs</th><th>Tablet controls</th></tr></thead>
+<tbody>
+<tr><td class="k">OCT FUZZ</td><td>Octave-down divider into a starved, gated fuzz and a blown speaker.</td><td>AMOUNT, OCTAVE, TONE, LEVEL</td><td>FUZZ, OCTAVE, TONE, LEVEL, on/off</td></tr>
+<tr><td class="k">TAPE</td><td>Warm tape saturation and compression, optional wow and flutter.</td><td>DRIVE, TONE, LEVEL, WOW</td><td>DRIVE, TONE, LEVEL, on/off</td></tr>
+<tr><td class="k">ENSEMBLE</td><td>1980s polysynth chorus: I (slow), II (faster), I+II (fast, shallow), VIBRATO.</td><td>MODE, MIX, VIB RATE, VIB DPTH</td><td>MODE, MIX</td></tr>
+<tr><td class="k">BBD ECHO</td><td>Bucket-brigade delay: each repeat darker and grittier; self-oscillates a little at full feedback.</td><td>MIX, TIME, FEEDBK, MOD; page 2: TONE, SYNC</td><td>MIX, TIME, REPEATS, MOD, TONE, SYNC, DIVISION, on/off</td></tr>
+<tr><td class="k">OIL CAN</td><td>Oil-can delay: clear, slightly warbly repeats; SMEAR melts them into a wash.</td><td>MIX, TIME, FEEDBK, WARBLE; page 2: SMEAR, SYNC</td><td>MIX, TIME, REPEATS, WARBLE, SMEAR, SYNC, DIVISION, on/off</td></tr>
+<tr><td class="k">REVERB</td><td><b>TWIN TANK</b>: long three-spring tank left, short two-spring tank right. <b>SPRING</b>: sings above about three quarters.</td><td>TYPE, AMOUNT, HOLD (SPRING: endless howl)</td><td>TYPE, MIX, on/off</td></tr>
+</tbody></table>
+<h3>Echoes in time</h3>
+<p>Switch <b>SYNC</b> on for BBD ECHO or OIL CAN and TIME becomes a note value instead of milliseconds: 1/32, 1/16T, 1/16, 1/8T,
+1/16. (dotted), 1/8, 1/4T, 1/8., 1/4, 1/4., 1/2, 1 bar, 2 bars. Switching SYNC on picks the note value nearest the time you had.
+If a note value is too long for the echo's memory at the current tempo, the echo plays the longest one that fits; the FM-1 then marks
+the value with <span class="scr">*</span>, and the tablet's <b>PLAYS</b> readout shows what really plays (for example <b>PLAYS 1/8. &middot; 375 ms</b>).</p>
+<div class="callout note"><span class="t">Differences between the two</span>
+The FM-1 has less memory than a tablet: its <b>BBD ECHO</b> reaches about 0.28 s and its <b>OIL CAN</b> 40-357 ms
+(tablet: 40-400 ms free, up to about 735 ms synced). So at 120 BPM a dotted eighth (375 ms) fits the oil can on the tablet but not on the FM-1.
+On the tablet, the REVERB knobs DECAY, TONE and DRIP are shown dimmed and do nothing yet, and TAPE WOW and the vibrato
+rate and depth are not on the panel.</div>
+
+
+<!-- ================================================================ 8 === -->
+<h2 class="chapter" id="modconcepts"><span class="num">8</span>Modulation, macros and voices</h2>
+<h3>Modulation routings</h3>
+<p>A <b>routing</b> connects a <b>source</b> to a <b>destination</b> with a <b>depth</b> from &minus;100 % to +100 %. Negative depths move the
+destination the other way. Each sound has 16 routing slots. You can make them by hand in the <b>MATRIX</b>, or, more quickly,
+straight from the knob you want to move (FM-1: chapter 13; tablet: chapter 18).</p>
+<div class="grid2 wide">
+<table class="free">
+<thead><tr><th colspan="2">Sources</th></tr></thead>
+<tbody>
+<tr><td class="k"><span class="pill p-env">ENV 1-4</span></td><td>the envelopes</td></tr>
+<tr><td class="k"><span class="pill p-mod">5-8</span></td><td>LFO / Performer / Stepper slots (shown as LFO5-LFO8 in the matrix)</td></tr>
+<tr><td class="k"><span class="pill p-mac">MAC 1-8</span></td><td>the eight macros</td></tr>
+<tr><td class="k"><span class="pill p-perf">VEL KEY</span></td><td>velocity; keyboard position</td></tr>
+<tr><td class="k"><span class="pill p-perf">MODW BEND AFTT</span></td><td>mod wheel, pitch bend, aftertouch</td></tr>
+<tr><td class="k"><span class="pill p-perf">RAND ONE OSC3</span></td><td>a new random value per note; a constant; oscillator 3's waveform used as a modulator</td></tr>
+</tbody></table>
+<table class="free">
+<thead><tr><th colspan="2">Destinations</th></tr></thead>
+<tbody>
+<tr><td class="k">PITCH</td><td>all oscillators</td></tr>
+<tr><td class="k">O1-O3 PITCH, WAVE, INTNS, AMP</td><td>each oscillator's pitch, wave position, intensity, level</td></tr>
+<tr><td class="k">NOISE</td><td>noise level</td></tr>
+<tr><td class="k">F1/F2 CUT, F1/F2 RES</td><td>filter cutoffs and resonances</td></tr>
+<tr><td class="k">SER/PAR</td><td>the filter routing blend</td></tr>
+<tr><td class="k">DRIVE</td><td>the TAPE drive</td></tr>
+<tr><td class="k">AMP, PAN</td><td>output level; stereo position</td></tr>
+<tr><td class="k">L5 RATE, L6 RATE</td><td>the rate of slots 5 and 6</td></tr>
+</tbody></table>
+</div>
+<h3>Macros</h3>
+<p>Eight macro knobs per sound. A macro does nothing by itself: route it to one or more destinations and it becomes a
+"performance knob" that moves them together. Macros 1-8 also answer MIDI CC 16-23, so a controller can play them live.</p>
+<h3>Voices and playing styles</h3>
+<table><tbody>
+<tr><td class="k">POLY</td><td>Chords. Up to 8 voices on the FM-1 (set with VOICES), 16 on the tablet.</td></tr>
+<tr><td class="k">MONO</td><td>One note at a time; each new note restarts the envelopes.</td></tr>
+<tr><td class="k">LEGATO</td><td>One note at a time; overlapping notes glide without restarting the envelopes.</td></tr>
+<tr><td class="k">Glide</td><td>Portamento time between notes; zero is off.</td></tr>
+<tr><td class="k">Bend</td><td>Pitch-bend range, 0-24 semitones.</td></tr>
+<tr><td class="k">Velocity</td><td>How much key velocity changes the volume (0 = none). The FM-1's own keys always play at velocity 100; a USB keyboard brings real velocity.</td></tr>
+<tr><td class="k">Master</td><td>The sound's output level, &times;0.00 to &times;4.00 (some converted sounds need more than &times;1).</td></tr>
+</tbody></table>
+
+<!-- ============================================================ PART 2 === -->
+<section class="part">
+  <div class="stripe"><div style="background:#fa882c"></div><div style="background:#f2c02e"></div><div style="background:#a4c440"></div><div style="background:#30baac"></div></div>
+  <div class="no">PART 2</div>
+  <h1>On the FM-1</h1>
+  <p>Installing the firmware, finding your way round the panel, and editing every part of a sound with
+  four knobs, three encoders and a 240-pixel screen.</p>
+  <img src="img/fm1/perf_library.png" style="width:2.6in;image-rendering:pixelated">
+</section>
+
+<!-- ================================================================ 9 === -->
+<h2 class="chapter" id="install"><span class="num">9</span>Installing (and going back to V15)</h2>
+<p class="lede">You install Vintage Chonk over USB from a small local web page that uses the FM-1's own updater code, unchanged.
+The same page can put M-VAVE's original V15 firmware back.</p>
+<div class="callout warn"><span class="t">Read first</span>
+<b>Installing erases what the M-VAVE firmware stored on the unit.</b> Back up projects, samples and voice libraries
+with M-VAVE's own workbench first. Install from stock V15 (<span class="mono">FM-1_015</span>) or over an earlier Vintage Chonk build;
+if you run other firmware, return to V15 first with M-VAVE's or fm1_open's tools. Keep the FM-1 charged and the cable still while it writes.</div>
+<h3>Install</h3>
+<ol class="steps">
+<li>Get the Vintage Chonk repository and its firmware package (<span class="mono">.fwsc</span>) from the project, then build the install page:<br>
+<code>python -I tools/flash/build_flash_page.py vintage-chonk</code><br>This writes <code>build/flash/index.html</code>.</li>
+<li>Serve that folder on your own computer, so the browser allows Web MIDI, for example:<br>
+<code>python -m http.server 8790 --bind 127.0.0.1 --directory build/flash</code></li>
+<li>Connect the FM-1 to the computer with a USB-C data cable and switch it on (V15 shows up as <b>FM-1 Midi</b>).</li>
+<li>Open <code>http://127.0.0.1:8790</code> in <b>Chrome or Edge</b>. Click <b>1. Connect (allow MIDI when asked)</b> and allow MIDI and SysEx access.</li>
+<li>Click <b>2. Install Vintage Chonk</b>. Wait until the log says it has finished. Do not unplug during the write.</li>
+<li>The FM-1 restarts into Vintage Chonk: the HOME page with <span class="scr">MACROS 1-4</span> and the first preset. On the computer it now appears as a MIDI port called <b>USB-Midi</b>.</li>
+</ol>
+<p><b>Updating</b> to a newer Vintage Chonk build works the same way: build the page for the new package, connect, and click <b>2. Install Vintage Chonk</b>.</p>
+<h3>Go back to M-VAVE V15</h3>
+<p>Open the same install page with the FM-1 connected, click <b>1. Connect</b>, then <b>Restore original V15</b>. The page carries the
+original V15 image and checks its fingerprint before writing.</p>
+<h3>If the screen flickers or the FM-1 keeps restarting</h3>
+<p>A unit that boot-loops (the screen flickers or restarts over and over, and no USB device appears) cannot be reached by the install
+page. The FM-1 can still be brought back with a cheap helper called an <b>FM-1 Transporter</b>: a small RP2040 board that forces the FM-1 into
+its built-in download mode, backs up the whole flash and writes V15 back. It never touches the boot area.</p>
+<div class="grid2 keep">
+<div>
+<h4>You need</h4>
+<ul>
+<li>An RP2040 board (Seeed XIAO RP2040 or RP2040-Zero)</li>
+<li>A USB-C (male) to 9-pin USB header cable</li>
+<li>Three male-to-female jumper wires</li>
+<li>Python 3 with <code>pyserial</code></li>
+</ul>
+<h4>Wiring</h4>
+<table><tbody>
+<tr><td class="k">green (D+)</td><td>GP0</td></tr>
+<tr><td class="k">white (D&minus;)</td><td>GP1</td></tr>
+<tr><td class="k">black (GND)</td><td>GND</td></tr>
+<tr><td class="k">red (VBUS)</td><td>not connected</td></tr>
+</tbody></table>
+<p class="small">The cable's USB-C goes into the FM-1; the RP2040 connects to the computer with its own cable.</p>
+</div>
+<div>
+<h4>Steps (summary)</h4>
+<ol class="steps small">
+<li>In <code>third_party/MvaveFM1Unbricker</code>: <code>python fm1_transporter_recover.py setup</code></li>
+<li>Hold the RP2040's <b>BOOT</b> button while plugging it in, then <code>python fm1_transporter_recover.py flash-xiao</code></li>
+<li>Copy <code>FM-1_015.fwsc</code> (V15) next to the script as <code>FM-1.fwsc</code></li>
+<li>FM-1 off and charged: <code>python fm1_transporter_recover.py wizard --v15 FM-1.fwsc</code>, and switch the FM-1 on when asked. The wizard reads the flash twice, does a dry run, and writes only after you type <code>WRITE</code>.</li>
+<li>Check: <code>python -I tools/fm1_identify.py</code> should answer <span class="mono">FM-1_015</span>.</li>
+</ol>
+</div>
+</div>
+<p class="small">Full details, pin diagram and safety notes: <code>docs/RECOVERY_TRANSPORTER.md</code> and <code>docs/HARDWARE_TEST_PLAN.md</code> in the repository.
+Holding OCT&minus; and OCT+ at power-on did not reach the download mode on the developer's unit; the Transporter did.</p>
+
+<!-- =============================================================== 10 === -->
+<h2 class="chapter" id="tour"><span class="num">10</span>Panel tour</h2>
+<figure><!--INCLUDE panel--><figcaption>The FM-1 panel under the Atomic Lounge firmware. Yellow words above the upper key row: what each key opens while SEL or EDIT is held. Numbers on the lower row: key numbers used in this guide.</figcaption></figure>
+<table>
+<thead><tr><th>Control</th><th>With this firmware</th></tr></thead>
+<tbody>
+<tr><td class="k">MASTER</td><td>Headphone and line volume of the whole instrument.</td></tr>
+<tr><td class="k">KNOB1-KNOB4</td><td>The four values in the tiles across the top of the screen, left to right.</td></tr>
+<tr><td class="k">SELECT</td><td>The page within the section (P1/2, P2/2 ...). On Performer and Stepper pages: the step cursor.</td></tr>
+<tr><td class="k">ALGORITHM</td><td>Which one: OSC 1/2/3/MOD/NOISE, FILTER 1/2/ROUTING, ENV 1-4, slot 5-8, effect, macro bank.</td></tr>
+<tr><td class="k">PRESETS</td><td>The page's list: presets on HOME, filter type, LFO wave, Performer shape, Stepper pattern, oscillator table, save slot.</td></tr>
+<tr><td class="k">FX SEL ENV LFO EDIT GLO</td><td>Sections: effects, filters, envelopes, modulators 5-8, oscillators, global (voice, pitch, matrix).</td></tr>
+<tr><td class="k">HOME SAVE</td><td>The play page with macros and presets; the save page.</td></tr>
+<tr><td class="k">OCT&minus; OCT+</td><td>Keyboard octave, &minus;2 to +2 (their lights show the shift). With HOME held: undo and redo.</td></tr>
+<tr><td class="k">SEQ</td><td>Tap: the step sequencer (chapter 15). Held on a Performer or Stepper page: the white keys select steps.</td></tr>
+<tr><td class="k">PLAY/STOP, REC</td><td>Start and stop the sequencer; record into it.</td></tr>
+<tr><td class="k">ARP</td><td>Not used yet: the screen says <span class="scr">ARP: NOT USED YET</span>.</td></tr>
+<tr><td class="k">Keys</td><td>27 keys, F to G over two octaves. They play notes, or pick a source or step while a button is held.</td></tr>
+</tbody></table>
+<div class="callout tip"><span class="t">The one rule to remember</span>
+The section buttons (FX, SEL, ENV, LFO, EDIT, GLO, HOME, SAVE) act <b>when you let go</b>, and only if you did nothing else while
+holding them. That lets the same buttons work as <b>modifiers</b>: hold ENV, LFO, HOME or GLO and turn a knob to modulate it; hold SEL or
+EDIT and press an upper key to jump to a section. Tap a section button again to go to the next one of its kind (EDIT: OSC 1 &rarr; OSC 2 ...).</div>
+
+<h3>Reading the screen</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/osc1.png"><figcaption>OSC 1, page 1</figcaption></figure>
+<div>
+<ol class="steps">
+<li><b>Header:</b> section icon and name, the slot number (<span class="scr">#01</span>, with <span class="scr">*</span> when edited) and dots for which instance is shown.</li>
+<li><b>Four tiles:</b> KNOB1 to KNOB4. Each tile shows the parameter, its value, a bar, and a small coloured chip for every modulation that targets it.</li>
+<li><b>Graph:</b> the waveform, filter curve, envelope, steps or effect chain.</li>
+<li><b>Encoder line:</b> what SELECT, ALG and PRESETS do here, and the page (P1/2) or step.</li>
+<li><b>Hint line:</b> a tip, replaced for 1.5 s by a message (for example <span class="scr">UNDO: ...</span>).</li>
+</ol>
+<p>Colours follow the parts of the synth: <span class="pill p-env">teal</span> envelopes, <span class="pill p-mod">avocado</span> modulators 5-8,
+<span class="pill p-mac">orange</span> macros, <span class="pill p-perf">magenta</span> the selected item.</p>
+</div></div>
+
+<!-- =============================================================== 11 === -->
+<h2 class="chapter" id="playing"><span class="num">11</span>Playing</h2>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/home_macros.png"><figcaption>HOME: preset name, slot, and the eight macros as bars. The outlined four are on the knobs.</figcaption></figure>
+<div>
+<h4>Choose a preset</h4>
+<ol class="steps">
+<li>Press <span class="btn">HOME</span>.</li>
+<li>Turn <span class="knob">PRESETS</span> to step through the 64 slots.</li>
+<li>If the current sound has unsaved edits, the first turn only warns (<span class="scr">UNSAVED EDITS: TURN AGAIN TO LEAVE</span>). Turn again within 2 seconds to leave without saving.</li>
+</ol>
+<p class="small">Factory sounds: slot 1 <span class="scr">INIT SAW</span>, 2 <span class="scr">WIDE TABLE PAD</span>, 3 <span class="scr">GROWL BASS</span>, 4 <span class="scr">FORMANT PLUCK</span>, 5 <span class="scr">ORGAN LEAD</span>, 6 <span class="scr">ACID LINE</span> (made for the step sequencer). Empty slots load the INIT sound. Your edits are kept through a power cycle: the FM-1 autosaves the current sound two seconds after you stop turning.</p>
+</div></div>
+<h4>Play the macros</h4>
+<p>On HOME, KNOB1-KNOB4 are <b>macros 1-4</b>. Tap <span class="btn">HOME</span> again (or turn <span class="knob">ALGORITHM</span>) for <b>macros 5-8</b>.</p>
+<h4>Octave, volume, mono and poly</h4>
+<ul>
+<li><span class="btn">OCT&minus;</span> / <span class="btn">OCT+</span> shift the keyboard from &minus;2 to +2 octaves.</li>
+<li><span class="knob">MASTER</span> sets the overall volume.</li>
+<li>Hold <span class="btn">SEL</span> or <span class="btn">EDIT</span> and press the <b>MONO</b> or <b>POLY</b> key to switch the voice mode at once.</li>
+<li>For LEGATO, the number of voices, velocity sensitivity and the sound's level: <span class="btn">GLO</span> &rarr; VOICE page. For glide, bend range and tempo: tap <span class="btn">GLO</span> again &rarr; PITCH page (chapter 12).</li>
+</ul>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/help.png"><figcaption>Hold HOME for the help card.</figcaption></figure>
+<div>
+<h4>Help on the instrument</h4>
+<p>Hold <span class="btn">HOME</span> on its own for 0.7 seconds: the help card lists every gesture. Let go to close it.</p>
+<h4>Section shortcuts on the upper keys</h4>
+<p>The upper key row still carries the stock legends. With <span class="btn">SEL</span> or <span class="btn">EDIT</span> held they mean:</p>
+<table class="small"><tbody>
+<tr><td class="k">OP1 OP2 OP3</td><td>OSC 1, OSC 2, OSC 3</td></tr>
+<tr><td class="k">OP4 / OP5</td><td>MOD OSC / NOISE</td></tr>
+<tr><td class="k">OP6</td><td>FILTERS</td></tr>
+<tr><td class="k">PIT / GLO</td><td>PITCH page / VOICE page</td></tr>
+<tr><td class="k">MONO / POLY</td><td>set the voice mode</td></tr>
+<tr><td class="k">last (unlabelled)</td><td>MACROS (HOME)</td></tr>
+</tbody></table>
+</div></div>
+
+<!-- =============================================================== 12 === -->
+<h2 class="chapter" id="pages"><span class="num">12</span>Editing a sound, page by page</h2>
+<p class="lede">Every page works the same way: the section button opens it, <span class="knob">ALGORITHM</span> picks which one,
+<span class="knob">SELECT</span> picks the page, KNOB1-4 change the four tiles, <span class="knob">PRESETS</span> picks from the page's list.</p>
+
+<h3>EDIT: oscillators, mod oscillator, noise</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/osc2.png"><figcaption>OSC 2 set to square at 16'</figcaption></figure>
+<div>
+<p>Press <span class="btn">EDIT</span>; tap again for OSC 2, OSC 3, MOD OSC, NOISE.</p>
+<table><thead><tr><th>Page</th><th>K1</th><th>K2</th><th>K3</th><th>K4</th></tr></thead><tbody>
+<tr><td class="k">OSC P1</td><td>WAVE</td><td>RANGE</td><td>TUNE</td><td>AMP</td></tr>
+<tr><td class="k">OSC P2</td><td>FINE</td><td>INTENS</td><td>ROUTE</td><td>ON</td></tr>
+<tr><td class="k">MOD OSC P1</td><td>PITCH</td><td>RING</td><td>PHASE</td><td>POS</td></tr>
+<tr><td class="k">MOD OSC P2</td><td>RING TO</td><td>PHASE TO</td><td>POS TO</td><td>FM TO</td></tr>
+<tr><td class="k">MOD OSC P3</td><td>FLT FM</td><td></td><td></td><td></td></tr>
+<tr><td class="k">NOISE</td><td>COLOR</td><td>AMP</td><td>ROUTE</td><td></td></tr>
+</tbody></table>
+<p class="small">WAVE steps through the eight classic shapes; RANGE moves in octaves (footage), TUNE in semitones. To hear OSC 2 or 3, set <b>ON</b> on page 2. PRESETS on an oscillator page = the table (keep CLASSIC on the FM-1, see chapter 3).</p>
+</div></div>
+<div class="grid3">
+<figure><img class="screen sm" src="img/fm1/osc1_p2.png"><figcaption>OSC 1, page 2</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/modosc.png"><figcaption>MOD OSC: ring on OSC 1</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/noise.png"><figcaption>NOISE</figcaption></figure>
+</div>
+
+<h3 class="brk">SEL: filters and routing</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/filter1.png"><figcaption>FILTER 1, LADDER</figcaption></figure>
+<div>
+<p>Press <span class="btn">SEL</span>: FILTER 1; tap again for FILTER 2, then ROUTING.</p>
+<table><thead><tr><th>Page</th><th>K1</th><th>K2</th><th>K3</th><th>K4</th></tr></thead><tbody>
+<tr><td class="k">FILTER 1 / 2</td><td>CUTOFF</td><td>RESO</td><td>DRIVE</td><td>KEYTRK</td></tr>
+<tr><td class="k">ROUTING P1</td><td>SER/PAR</td><td>F1 MIX</td><td>F2 MIX</td><td></td></tr>
+<tr><td class="k">ROUTING P2</td><td>OSC1</td><td>OSC2</td><td>OSC3</td><td>NOISE</td></tr>
+</tbody></table>
+<p><span class="knob">PRESETS</span> on a filter page picks the type, in this order: LP2, LP4, LADDER, ACID, HP, BP, NOTCH, OFF.
+The curve on screen is a guide to the filter's shape, not an exact measurement.</p>
+</div></div>
+<div class="grid2">
+<figure><img class="screen sm" src="img/fm1/routing.png"><figcaption>ROUTING page 1: the diagram shows where each source goes</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/filter2.png"><figcaption>FILTER 2 set to HP</figcaption></figure>
+</div>
+
+<h3 class="brk">ENV: envelopes 1-4</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/env1_p2.png"><figcaption>ENV 1, page 2</figcaption></figure>
+<div>
+<p>Press <span class="btn">ENV</span>; tap again (or turn ALGORITHM) for ENV 2, 3, 4. ENV 4 is labelled <span class="scr">AMP ENVELOPE</span>.</p>
+<table><thead><tr><th>Page</th><th>K1</th><th>K2</th><th>K3</th><th>K4</th></tr></thead><tbody>
+<tr><td class="k">P1</td><td>DELAY</td><td>ATTACK</td><td>ATT LVL</td><td>DECAY</td></tr>
+<tr><td class="k">P2</td><td>DEC LVL</td><td>SUS TIM</td><td>SUSTAIN</td><td>RELEASE</td></tr>
+<tr><td class="k">P3</td><td>LOOP</td><td></td><td></td><td></td></tr>
+</tbody></table>
+</div></div>
+
+<h3>LFO: slots 5-8 and the multi-tap switch</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/perf_toast.png"><figcaption>Two quick taps on LFO turned slot 6 into a Performer.</figcaption></figure>
+<div>
+<p><span class="knob">ALGORITHM</span> picks the slot (5-8). The kind is set by <b>quick taps</b> on <span class="btn">LFO</span> (gaps under 0.4 s):</p>
+<table><tbody>
+<tr><td class="k">1 tap</td><td>LFO</td></tr>
+<tr><td class="k">2 taps</td><td>PERFORMER</td></tr>
+<tr><td class="k">3 taps</td><td>STEPPER</td></tr>
+<tr><td class="k">4 taps</td><td>back to LFO</td></tr>
+</tbody></table>
+<ul class="small">
+<li>From another page, a <b>single</b> tap only opens the LFO page and never changes anything. A burst of 2 or 3 taps opens it and sets the kind in one go.</li>
+<li>The LFO button's light blinks the kind of the slot shown: 1, 2 or 3 blinks.</li>
+<li>The slot's routings stay, and the other kinds' settings are kept for when you switch back.</li>
+</ul>
+</div></div>
+<table><thead><tr><th>Kind</th><th>K1</th><th>K2</th><th>K3</th><th>K4</th><th>SELECT</th><th>PRESETS</th></tr></thead><tbody>
+<tr><td class="k">LFO P1</td><td>RATE</td><td>WAVE</td><td>PHASE</td><td>SYNC</td><td rowspan="2">page</td><td rowspan="2">wave</td></tr>
+<tr><td class="k">LFO P2</td><td>KEYSYNC</td><td>UNIPOL</td><td></td><td></td></tr>
+<tr><td class="k">PERFORMER</td><td>SHAPE</td><td>LEVEL</td><td>LOOP ST</td><td>LOOP END</td><td>step 1-16, then TIMING</td><td>shape library</td></tr>
+<tr><td class="k">STEPPER</td><td>VALUE</td><td>GLIDE</td><td>LOOP ST</td><td>LOOP END</td><td>step 1-16, then TIMING</td><td>pattern</td></tr>
+<tr><td class="k">TIMING page</td><td>RATE</td><td>SYNC</td><td>KEYSYNC</td><td>UNIPOL</td><td></td><td></td></tr>
+</tbody></table>
+
+<h3 class="brk">Performer and Stepper steps</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/perf_library.png"><figcaption>Turning PRESETS on a Performer step shows the 32-shape library for 1.5 s.</figcaption></figure>
+<div>
+<h4>Edit one step</h4>
+<ol class="steps">
+<li>Turn <span class="knob">SELECT</span> to move the step cursor (the encoder line shows <span class="scr">STEP n</span>).</li>
+<li>Performer: turn KNOB1 (SHAPE) or <span class="knob">PRESETS</span> for the curve, KNOB2 for the level. Stepper: KNOB1 sets the value.</li>
+</ol>
+<h4>Edit many steps at once</h4>
+<ol class="steps">
+<li>Hold <span class="btn">SEQ</span>.</li>
+<li>Press white keys 1-16 to select those steps (press again to deselect). The key lights show the selection.</li>
+<li>Let go of SEQ and turn KNOB1 or KNOB2: every selected step changes together.</li>
+</ol>
+<p class="small">Each new SEQ hold starts a new selection. Turning ALGORITHM clears it. On the Stepper, PRESETS stamps one of four ready-made patterns onto all 16 steps.</p>
+</div></div>
+<div class="grid2">
+<figure><img class="screen sm" src="img/fm1/perf_timing.png"><figcaption>TIMING page (after step 16): RATE as a tempo division</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/stepper7.png"><figcaption>Slot 7 as a Stepper with a pattern</figcaption></figure>
+</div>
+
+<h3 class="brk">FX: the six effects</h3>
+<p>Press <span class="btn">FX</span>; turn <span class="knob">ALGORITHM</span> (or tap FX again) to move along the chain. The graph shows the chain with each effect's amount as a bar.
+BBD ECHO and OIL CAN have a second page (SELECT) with <b>SYNC</b>: when it is on, TIME on page 1 steps through note values (see "Echoes in time", chapter 7).</p>
+<table><thead><tr><th>Effect</th><th>K1</th><th>K2</th><th>K3</th><th>K4</th><th>Page 2</th></tr></thead><tbody>
+<tr><td class="k">OCT FUZZ</td><td>AMOUNT</td><td>OCTAVE</td><td>TONE</td><td>LEVEL</td><td></td></tr>
+<tr><td class="k">TAPE</td><td>DRIVE</td><td>TONE</td><td>LEVEL</td><td>WOW</td><td></td></tr>
+<tr><td class="k">ENSEMBLE</td><td>MODE</td><td>MIX</td><td>VIB RATE</td><td>VIB DPTH</td><td></td></tr>
+<tr><td class="k">BBD ECHO</td><td>MIX</td><td>TIME</td><td>FEEDBK</td><td>MOD</td><td>TONE, SYNC</td></tr>
+<tr><td class="k">OIL CAN</td><td>MIX</td><td>TIME</td><td>FEEDBK</td><td>WARBLE</td><td>SMEAR, SYNC</td></tr>
+<tr><td class="k">REVERB</td><td>TYPE</td><td>AMOUNT</td><td>HOLD</td><td></td><td></td></tr>
+</tbody></table>
+<div class="grid3">
+<figure><img class="screen sm" src="img/fm1/fx_ensemble.png"><figcaption>ENSEMBLE, mode I</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/fx_bbd_p2.png"><figcaption>BBD ECHO page 2: SYNC on</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/fx_bbd_sync.png"><figcaption>Back on page 1: TIME now reads 1/4</figcaption></figure>
+</div>
+
+<h3 class="brk">GLO: voice, pitch and the modulation matrix</h3>
+<p>Press <span class="btn">GLO</span> for VOICE; tap again for PITCH, then MATRIX.</p>
+<table><thead><tr><th>Page</th><th>K1</th><th>K2</th><th>K3</th><th>K4</th></tr></thead><tbody>
+<tr><td class="k">VOICE</td><td>MODE (POLY, MONO, LEGATO)</td><td>VOICES (1-8)</td><td>VEL (0-127)</td><td>MASTER (&times;0-&times;4)</td></tr>
+<tr><td class="k">PITCH</td><td>GLIDE</td><td>BEND (0-24 st)</td><td>TEMPO (40-240 BPM)</td><td></td></tr>
+<tr><td class="k">MATRIX</td><td>SOURCE</td><td>TARGET</td><td>DEPTH</td><td></td></tr>
+</tbody></table>
+<p>On MATRIX, <span class="knob">SELECT</span> moves through the 16 routing rows; KNOB1-3 edit the highlighted one. TEMPO belongs to the instrument, not to the sound: it is the step sequencer's tempo and is saved with the patterns (SAVE on the sequencer page).</p>
+<div class="grid3">
+<figure><img class="screen sm" src="img/fm1/voice.png"><figcaption>VOICE</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/pitch.png"><figcaption>PITCH</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/matrix.png"><figcaption>MATRIX with two routings</figcaption></figure>
+</div>
+
+<!-- =============================================================== 13 === -->
+<h2 class="chapter" id="fm1mod"><span class="num">13</span>Modulation on the FM-1, step by step</h2>
+<p class="lede">On a computer you would drag a modulator onto a knob. On the FM-1 you <b>hold the source button and turn the knob</b>.</p>
+<ol class="steps">
+<li><b>Open the page</b> with the knob you want to move (for example <span class="btn">SEL</span> for filter 1 cutoff).</li>
+<li><b>Hold the source button</b>: <span class="btn">ENV</span> for an envelope, <span class="btn">LFO</span> for slot 5-8, <span class="btn">HOME</span> for a macro, <span class="btn">GLO</span> for a performance source. The header turns into <span class="scr">MOD ...</span> with <span class="scr">TURN A KNOB</span>, and the tiles show only this source's depths.</li>
+<li><b>While holding, pick which one</b> with a white key (see the key map below). The button blinks while it is held.</li>
+<li><b>Turn KNOB1-4.</b> Each detent changes the depth by 1 % (&minus;100 to +100 %). A routing slot is created the first time and reused afterwards.</li>
+<li><b>Let go.</b> The page returns, with a coloured chip under the knob for the new routing.</li>
+</ol>
+<figure><!--INCLUDE keys--><figcaption>Which white key picks which source while a button is held. The choice is remembered for the next hold.</figcaption></figure>
+<div class="grid2">
+<div>
+<h4>Change or remove a routing</h4>
+<ul>
+<li>Hold the same source again and turn the same knob: the depth changes.</li>
+<li>Turn the depth back to <b>0</b>: the routing is removed and its slot freed.</li>
+<li>Or open <span class="btn">GLO</span> &rarr; MATRIX and edit any row by hand.</li>
+<li>Undo with <span class="btn">HOME</span> + <span class="btn">OCT&minus;</span>.</li>
+</ul>
+<h4>Which knobs can be modulated</h4>
+<p class="small">Oscillator WAVE, RANGE, TUNE, AMP, FINE and INTENS; noise AMP; filter CUTOFF and RESO; SER/PAR; the RATE of slots 5 and 6; TAPE DRIVE; VOICE MASTER.
+Other knobs say <span class="scr">... : NO MOD TARGET</span>. PAN and the global PITCH destination are reachable in the MATRIX.
+All 16 slots in use: <span class="scr">ALL 16 MOD SLOTS USED</span>.</p>
+</div>
+<div>
+<div class="callout note" style="margin-top:0"><span class="t">Sidechain</span>
+Massive-style sidechain (one source scaling the others) is not available in this version. Each routing adds its depth on its own.</div>
+<div class="callout tip"><span class="t">Several sources in one hold</span>
+While holding ENV, press white key 1 and turn KNOB1, then press key 2 and turn KNOB1 again: ENV 1 and ENV 2 both move the same knob.</div>
+</div>
+</div>
+
+<h3 class="brk">Worked example: make a Stepper move the filter cutoff</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/assign_overlay.png"><figcaption>Holding LFO with slot 7 picked, turning KNOB1: +35 % on FILTER 1 CUTOFF.</figcaption></figure>
+<ol class="steps">
+<li>Press <span class="btn">LFO</span>, turn <span class="knob">ALGORITHM</span> to slot 7, then tap <span class="btn">LFO</span> three times quickly. The title reads <span class="scr">STEP 7</span>.</li>
+<li>Turn <span class="knob">PRESETS</span> one or two detents to stamp a pattern, or set each step's VALUE with SELECT and KNOB1.</li>
+<li>Press <span class="btn">SEL</span> (turn ALGORITHM to FILTER 1 if needed). Set the type to LADDER with <span class="knob">PRESETS</span> and turn CUTOFF down to about 400-600 Hz.</li>
+<li>Hold <span class="btn">LFO</span>, press white key <b>7</b>, turn <b>KNOB1</b> clockwise to about +35 %. Let go.</li>
+<li>Play and hold a note: the cutoff now jumps in the Stepper's rhythm. A green <span class="pill p-mod">L7</span> chip sits under CUTOFF.</li>
+<li>Try more: on the Stepper's TIMING page set SYNC on and RATE to 1/16; raise GLIDE for smoother steps; add RESO.</li>
+</ol>
+</div>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/filter1_mods.png"><figcaption>FILTER 1 afterwards, with ENV 1 also on RESO. The chips show both routings.</figcaption></figure>
+<div><p>The MATRIX (GLO, tap twice) now lists <span class="scr">LFO7 &gt; F1 CUT +35%</span>. The matrix calls slots 5-8 <span class="scr">LFO5</span>-<span class="scr">LFO8</span> whatever their kind.</p>
+<div class="callout tip"><span class="t">Make a macro a "performance knob"</span>
+Hold <span class="btn">HOME</span>, press white key 1, and turn the cutoff knob: macro 1 now opens the filter. Back on HOME, KNOB1 plays it. Hold HOME again on the RESO knob too, and one macro sweeps both.</div></div>
+</div>
+
+<!-- =============================================================== 14 === -->
+<h2 class="chapter" id="saving"><span class="num">14</span>Saving, slots, undo and redo</h2>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/save.png"><figcaption>SAVE: the name, the target slot and what it replaces.</figcaption></figure>
+<div>
+<h4>Save a sound</h4>
+<ol class="steps">
+<li>Press <span class="btn">SAVE</span>. The page shows the name, <span class="scr">TO SLOT nn</span> and the name it would replace.</li>
+<li>Name it: <span class="knob">SELECT</span> moves the cursor, <b>KNOB1</b> changes the letter (A-Z, 0-9, space and <span class="mono">- + # / .</span>). Names have up to 23 characters.</li>
+<li>Turn <span class="knob">PRESETS</span> to choose the slot (1-64).</li>
+<li>Press <span class="btn">SAVE</span> again to write. The message <span class="scr">SAVED TO SLOT n</span> confirms it and HOME opens.</li>
+</ol>
+<p>To leave without saving, press <span class="btn">HOME</span>.</p>
+</div></div>
+<p>There are <b>64 slots</b> in eight banks. Each bank is stored twice on the FM-1's flash, and the new copy only counts once it is complete,
+so a power cut during a save cannot destroy the old sound. If the flash write fails, the message is <span class="scr">FLASH ERROR</span>.</p>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/undo.png"><figcaption>HOME + OCT&minus;: the message says what was undone.</figcaption></figure>
+<div>
+<h4>Undo and redo</h4>
+<ul>
+<li><span class="btn">HOME</span> + <span class="btn">OCT&minus;</span> = undo; <span class="btn">HOME</span> + <span class="btn">OCT+</span> = redo. Works on any page.</li>
+<li>The last <b>16</b> changes are kept. Turns of the same knob within one second count as one change.</li>
+<li>A change sent from the browser editor is one undo step too.</li>
+<li>Loading another preset starts a fresh history.</li>
+</ul>
+</div></div>
+<div class="callout note"><span class="t">Sequencer patterns are saved separately</span>
+On the sequencer page, <span class="btn">SAVE</span> saves the 8 patterns, the tempo and the clock settings, not the sound (chapter 15).
+Leave the sequencer page to save a sound. Pattern edits are not part of the sound's undo history.</div>
+
+<!-- =============================================================== 15 === -->
+<h2 class="chapter" id="seq"><span class="num">15</span>The step sequencer</h2>
+<p class="lede">A mono step sequencer in the style of the classic bassline boxes: up to 64 steps, each with a note, a gate length,
+accent and slide. Eight patterns, swing, and MIDI clock in and out.</p>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/seq_step.png"><figcaption>The STEP page with factory pattern 1, stopped. The magenta frame is the cursor.</figcaption></figure>
+<div>
+<h4>Hear it in four steps</h4>
+<ol class="steps">
+<li>On <span class="btn">HOME</span>, turn <span class="knob">PRESETS</span> to slot 6, <span class="scr">ACID LINE</span>.</li>
+<li><b>Tap</b> <span class="btn">SEQ</span>: the sequencer page opens with <span class="scr">PATTERN 1</span>, an acid line.</li>
+<li>Press <span class="btn">PLAY/STOP</span>. The PLAY light flashes on the beat.</li>
+<li>Hold a key: the pattern is transposed (relative to its first note) for as long as you hold it. Press PLAY/STOP again to stop.</li>
+</ol>
+<p class="small">Tap SEQ again (or turn <span class="knob">ALGORITHM</span>) for the next page: STEP &rarr; PATTERN &rarr; CLOCK.
+<b>Holding</b> SEQ on a Performer or Stepper page still selects that modulator's steps; it does not open the sequencer.</p>
+</div></div>
+<h3>Reading the step grid</h3>
+<table class="small"><tbody>
+<tr><td class="k">Cells</td><td>Two rows of eight: the 16 steps around the cursor (1-16, 17-32 ...). Each shows its number and note, <span class="scr">-</span> for a rest or <span class="scr">TIE</span>.</td></tr>
+<tr><td class="k">Marks</td><td>Green bar = gate length; orange mark = accent; teal ramp into the next cell = slide.</td></tr>
+<tr><td class="k">Colours</td><td>The playing step is filled mustard; the cursor has a magenta frame. The white-key lights show the playing step and blink the cursor.</td></tr>
+<tr><td class="k">Status line</td><td><span class="scr">STOP</span>, <span class="scr">PLAY</span> or <span class="scr">WAIT CLOCK</span>, plus <span class="scr">REC</span>; the step range and length (<span class="scr">1-16 OF 16</span>); the rate, with <span class="scr">MIDI</span> when following MIDI clock.</td></tr>
+</tbody></table>
+
+<h3 class="brk">Writing a pattern</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/seq_step5.png"><figcaption>Cursor on step 5, a rest. The tiles show the cursor step.</figcaption></figure>
+<div>
+<h4>Step entry (stopped)</h4>
+<ol class="steps">
+<li>Turn <span class="knob">SELECT</span> to put the cursor on a step (the encoder line shows <span class="scr">5/16</span>).</li>
+<li>Play a key: its note goes into the step, you hear it, and the cursor moves on. A rest or tie becomes a note with the last gate length used.</li>
+<li><span class="btn">OCT&minus;</span> writes a <b>rest</b>, <span class="btn">OCT+</span> a <b>tie</b> (the previous note keeps sounding); the cursor moves on.</li>
+<li>To change the keyboard octave here, hold <span class="btn">SEQ</span> and press OCT&minus; or OCT+.</li>
+</ol>
+</div></div>
+<table>
+<thead><tr><th>Page</th><th>K1</th><th>K2</th><th>K3</th><th>K4</th></tr></thead>
+<tbody>
+<tr><td class="k">STEP</td><td>NOTE (semitones)</td><td>GATE: REST, 5-100 %, TIE</td><td>ACCENT on/off</td><td>SLIDE on/off</td></tr>
+<tr><td class="k">PATTERN</td><td>LENGTH 1-64</td><td>RATE 1/32, 1/16, 1/8</td><td>SWING 50-75 %</td><td>TEMPO 40-240 BPM</td></tr>
+<tr><td class="k">CLOCK</td><td>CLK IN: AUTO / OFF</td><td>CLK OUT: OFF / ON</td><td></td><td></td></tr>
+</tbody></table>
+<ul>
+<li><b>Accent</b> plays the step at velocity 127 instead of 90. The ACID LINE sound routes velocity to the filter cutoff, so accents bite.</li>
+<li><b>Slide</b> holds the note into the next step, which glides to its pitch without a new attack: the sound's own glide time, or about 60 ms if the sound has none.</li>
+<li><span class="knob">PRESETS</span> picks pattern 1-8. While the sequencer runs, the new pattern starts when the current one ends (<span class="scr">PATTERN n NEXT</span>).</li>
+</ul>
+<div class="grid3">
+<figure><img class="screen sm" src="img/fm1/seq_play.png"><figcaption>Running: step 4 is playing.</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/seq_pattern.png"><figcaption>PATTERN page</figcaption></figure>
+<figure><img class="screen sm" src="img/fm1/seq_clock.png"><figcaption>CLOCK page</figcaption></figure>
+</div>
+
+<h3 class="brk">Recording live</h3>
+<div class="pagepair">
+<figure><img class="screen" src="img/fm1/seq_rec.png"><figcaption>PLAY and REC: keys write steps.</figcaption></figure>
+<div>
+<ol class="steps">
+<li>Press <span class="btn">PLAY/STOP</span>, then <span class="btn">REC</span> (its light comes on; <span class="scr">REC ON: KEYS WRITE STEPS</span>).</li>
+<li>Play keys in time. Each note is written to the step playing if you hit it in the first half of the step, or to the next step if you are in the second half.</li>
+<li>Recording works from any page, so you can tweak the sound while the pattern plays and record over it.</li>
+<li>Press <span class="btn">REC</span> again to stop recording. Without REC, keys pressed while the pattern runs transpose it.</li>
+</ol>
+</div></div>
+<h3>Tempo and MIDI clock</h3>
+<ul>
+<li>The tempo (PATTERN page K4, or GLO &rarr; PITCH) also drives synced LFOs, Performers, Steppers and echoes.</li>
+<li><b>CLK IN AUTO</b> (the default): when MIDI clock arrives over USB the sequencer follows it, including Start, Stop, Continue and Song Position. The tempo tile then shows the measured tempo with <span class="scr">MIDI</span>. If the clock stops for half a second, the internal tempo takes over again. Set CLK IN to OFF to ignore incoming clock.</li>
+<li>While waiting for the next clock tick after PLAY, the status reads <span class="scr">WAIT CLOCK</span> and the PLAY light blinks fast.</li>
+<li><b>CLK OUT ON</b> sends MIDI clock (with Start and Stop) while the FM-1 runs on its own tempo, so other gear can follow it.</li>
+</ul>
+<h3>Saving patterns</h3>
+<p>On the sequencer page, press <span class="btn">SAVE</span>: all 8 patterns, the tempo and the clock settings are written (<span class="scr">PATTERNS SAVED</span>).
+They are not saved with the sound, and the sound is not saved here. The encoder line shows <span class="scr">*</span> after the step counter while patterns have unsaved changes.
+Hold <span class="btn">HOME</span> on the sequencer page for its own help card. The <span class="btn">ARP</span> button is not used yet.</p>
+
+<!-- ============================================================ PART 3 === -->
+<section class="part">
+  <div class="stripe"><div style="background:#fa882c"></div><div style="background:#f2c02e"></div><div style="background:#a4c440"></div><div style="background:#30baac"></div></div>
+  <div class="no">PART 3</div>
+  <h1>On the tablet</h1>
+  <p>The same engine with a full-size panel: everything on one screen in a 1970s analogue dress,
+  a touch keyboard with wheels, and room for 16 voices.</p>
+  <img src="img/tablet/panel.jpg">
+</section>
+
+<!-- =============================================================== 15 === -->
+<h2 class="chapter" id="tabinstall"><span class="num">16</span>Installing the Android app</h2>
+<p class="lede">The app is a single APK file, built by <code>android/build.ps1</code>. It needs Android 8.0 or newer and runs in landscape.</p>
+<ol class="steps">
+<li>On the tablet, switch on <b>Developer options</b> and <b>USB debugging</b> (on Fire tablets: Settings &rarr; Device Options &rarr; About, tap the serial number seven times).</li>
+<li>Connect the tablet to the computer and allow the debugging prompt on the tablet.</li>
+<li>Install: <code>adb install -r</code> followed by the path of the APK file.</li>
+<li>Open <b>Vintage Chonk</b> from the app list.</li>
+</ol>
+<div class="callout note"><span class="t">A dedicated synth tablet</span>
+The app can act as the tablet's <b>home screen</b> and starts itself when the tablet boots. If you choose it as the home app
+(Android asks which home app to use when you press Home), the tablet becomes a dedicated instrument. The Back button is ignored and the screen stays on.</div>
+<div class="callout warn"><span class="t">Getting out of the app</span>
+Press and <b>hold the VINTAGE CHONK title</b> under the panel for <b>3 seconds</b>. A ring fills while you hold; lifting early cancels.
+Android <b>Settings</b> opens, from where you can reach other apps or change the home app back.</div>
+<div class="callout warn"><span class="t">About tablet_setup.ps1</span>
+The repository's <code>android/tablet_setup.ps1</code> was written for one particular Fire HD 10. Besides installing the app it
+<b>uninstalls other apps and disables Amazon apps</b>. Do not run it on your tablet unless that is exactly what you want; it has a <code>-DryRun</code> option to see what it would do.</div>
+
+<!-- =============================================================== 16 === -->
+<h2 class="chapter" id="tabpanel"><span class="num">17</span>The tablet panel</h2>
+<figure><img class="tablet" src="img/tablet/panel.jpg"><figcaption>The whole panel: sound sections on top, modulation, macros and effects in the middle, the preset strip and keyboard below.</figcaption></figure>
+<table>
+<thead><tr><th>Section</th><th>Controls</th></tr></thead>
+<tbody>
+<tr><td class="k">OSCILLATORS</td><td>OSC 1-3 rows: on/off rocker, RANGE (LO, 32', 16', 8', 4', 2'), PITCH (&minus;7 to +7 semitones), WAVEFORM (eight icons), INTENSITY, AMP, F1 &middot; F2 route.</td></tr>
+<tr><td class="k">MOD OSC &middot; NOISE &middot; FEEDBACK</td><td>MOD OSC: PITCH (&plusmn;48), RING, PHASE, WAVE, each with a target chip (tap: OFF, OSC 1, OSC 2, OSC 3). NOISE: COLOUR, AMP, F1 &middot; F2. FEEDBACK is greyed out (not in this engine yet). DRIFT (ANALOG).</td></tr>
+<tr><td class="k">FILTERS</td><td>FILTER 1 type list (LADDER, ACID, LP4, LP2, HP, BP, NOTCH) and FILTER 2 (the same with OFF); CUTOFF, EMPHASIS, DRIVE, KEYBOARD TRACK / KEY TRACK. ROUTING &middot; MIX: SER &middot; PAR, F1 MIX, F2 MIX.</td></tr>
+<tr><td class="k">MASTER</td><td>VOLUME, PILOT lamp (glows with the voices playing), TUNE, GLIDE knob and rocker, VOICE (POLY / MONO / LEGATO), A-440 rocker (holds an A for tuning), BEND chip (&plusmn;1 to &plusmn;24).</td></tr>
+<tr><td class="k">MODULATION</td><td>Eight tabs: ENV 1-4, then 5-8 labelled with their kind (LFO, PERF, STEP). The pane below edits the selected tab.</td></tr>
+<tr><td class="k">MACRO CONTROL</td><td>Eight macro knobs, each with a &#x271B; handle and the name of its first destination.</td></tr>
+<tr><td class="k">EFFECTS</td><td>One mini unit per effect, with its main knob and an on/off rocker (ENSEMBLE: a mode chip). Tap a unit's title for the full EFFECTS overlay.</td></tr>
+<tr><td class="k">Strip</td><td>MIDI light, 8 voice lights, audio info, &#9664; preset display &#9654;, SAVE, IMPORT .NMSV, INIT, MATRIX, EFFECTS.</td></tr>
+</tbody></table>
+<div class="grid2">
+<figure><img class="tablet" src="img/tablet/panel_env.jpg"><figcaption>ENV 1 tab: eight stage knobs, LOOP and the envelope graph.</figcaption></figure>
+<figure><img class="tablet" src="img/tablet/panel_perf.jpg"><figcaption>Slot 5 as a Performer: tap a step for its shape, drag for its level.</figcaption></figure>
+</div>
+<h3>Envelopes and modulators on the tablet</h3>
+<ul>
+<li><b>Envelope tabs:</b> DELAY, ATTACK, A-LEVEL, DECAY, D-LEVEL, SUSTAIN, S-TIME, RELEASE and LOOP. ENV 4's graph is titled <b>LOUDNESS</b>.</li>
+<li><b>Slots 5-8:</b> the kind button cycles <b>LFO &rarr; PERFORMER &rarr; STEPPER</b>. All kinds have RATE, SYNC, DIVISION (1/32 to 2 BAR), RETRIG and UNIPOLAR. LFO adds WAVE; Stepper adds GLIDE.</li>
+<li><b>Performer:</b> "TAP A STEP: SHAPE &middot; DRAG: LEVEL". Tapping a step opens a picker of the 32 shapes.</li>
+<li><b>Stepper:</b> "DRAG ACROSS THE STEPS: LEVEL". Draw the pattern with one finger.</li>
+</ul>
+
+<!-- =============================================================== 17 === -->
+<h2 class="chapter" id="tabplay"><span class="num">18</span>Playing the tablet</h2>
+<div class="grid2">
+<div>
+<h3 style="margin-top:0">Keyboard and wheels</h3>
+<ul>
+<li>37 keys, C3 to C6. <span class="tab">OCTAVE &minus;</span> / <span class="tab">+</span> shift by up to three octaves each way (held notes are released).</li>
+<li><b>Velocity</b> follows where you touch: near the top of a key is soft, near the bottom is loud.</li>
+<li>Slide across the keys to play a glissando.</li>
+<li><b>PITCH</b> wheel springs back to the centre. <b>MOD</b> wheel stays where you leave it (CC 1).</li>
+</ul>
+<h3>Knobs</h3>
+<ul>
+<li>Drag <b>up or down</b> to turn.</li>
+<li><b>Long-press</b> (about half a second, without moving) for <b>fine</b> control: the tooltip shows &middot; FINE.</li>
+<li><b>Double-tap</b> a knob to reset it to its default.</li>
+<li>Tap a scale number or a waveform icon to jump straight to it.</li>
+</ul>
+<h3>Zoom</h3>
+<ul>
+<li><b>Pinch</b> to zoom up to 3.5&times;; <b>two fingers</b> pan while zoomed; one finger pans on an empty part of the panel.</li>
+<li><b>Double-tap</b> an empty part of the panel: zoom to 2.2&times; there, or back.</li>
+<li>The <span class="tab">FIT</span> chip (top right, while zoomed) returns to the whole panel. The keyboard and wheels never zoom.</li>
+</ul>
+</div>
+<div>
+<h3 style="margin-top:0">Presets</h3>
+<ul>
+<li><span class="tab">&#9664;</span> / <span class="tab">&#9654;</span> step through the factory sounds, then your own (F01, U01 ...). <b>EDITED</b> shows when you have changed the sound.</li>
+<li>Tap the display for the <b>PRESETS</b> list (FACTORY and YOUR PRESETS). DELETE asks <b>SURE?</b>: tap again within 2.5 s.</li>
+<li><span class="tab">SAVE</span> asks for a name (up to 23 characters). Saving with the name of one of your presets replaces it.</li>
+<li><span class="tab">INIT</span> loads the initial sound.</li>
+<li><span class="tab">IMPORT .NMSV</span> opens Android's file picker. Choose a Massive preset (up to 4 MB): it is converted on the tablet and the panel shows what carried over, with <b>PLAY IT</b> and <b>SAVE&hellip;</b>.</li>
+</ul>
+<p class="small">Factory sounds: Walnut Bass, Copper Lead, Brass Section, Velvet Pad, Glass Pluck, Acid Line, Sync Sweeper, Wobble Engine, Step Arpeggio, Parlour Keys, Iron Bell, Thunder Kick, Rubber Funk, Silk Strings, Night Wind, Hollow Stab.</p>
+<h3>Sound and MIDI</h3>
+<ul>
+<li>Audio comes out of the tablet's speaker or headphone jack; a headphone-to-line cable into a mixer works well.</li>
+<li>Plug a class-compliant <b>USB MIDI keyboard</b> through a USB OTG adapter; the strip shows the device. It plays on any MIDI channel.</li>
+<li>Up to <b>16 voices</b>. The voice lights show up to 8.</li>
+</ul>
+</div>
+</div>
+
+<h3 class="brk">Modulation by drag and drop</h3>
+<ol class="steps">
+<li>Find the source's <b>&#x271B; handle</b>: on each MODULATION tab (ENV 1-4, 5-8), under SOURCES (<b>&#x271B; VEL</b>, <b>&#x271B; KEY</b>, <b>&#x271B; MW</b>), or under each macro (<b>&#x271B; 1</b> to <b>&#x271B; 8</b>).</li>
+<li><b>Drag</b> the handle onto a knob that can be modulated and let go. The routing is added at +30 %.</li>
+<li>A coloured <b>chip</b> (E1, L5, VEL ...) appears under the knob and an arc around it. <b>Drag the chip up or down</b> to set the depth (&minus;100 to +100 %).</li>
+<li><b>Double-tap the chip</b> to remove the routing.</li>
+</ol>
+<p class="small">Each knob takes up to three sources; a sound has 16 routings in all. Knobs that accept modulation: TUNE; oscillator PITCH, WAVEFORM, INTENSITY, AMP; noise AMP; both CUTOFFs and EMPHASISes; SER &middot; PAR; FILTER 1 DRIVE; VOLUME; the RATE of slots 5 and 6.</p>
+<div class="grid2">
+<figure><img class="tablet" src="img/tablet/matrix.jpg"><figcaption>MATRIX: 16 slots, each with SOURCE, DESTINATION, DEPTH and CLEAR.</figcaption></figure>
+<figure><img class="tablet" src="img/tablet/effects.jpg"><figcaption>EFFECTS: all six units with every control.</figcaption></figure>
+</div>
+<ul>
+<li><span class="tab">MATRIX</span> shows all 16 routings as cards. Its source list also offers PITCH BEND, AFTERTOUCH, RANDOM, CONSTANT and OSC 3. While it is open the button reads <span class="tab">PANEL</span>: tap to go back.</li>
+<li><span class="tab">EFFECTS</span> (or a tap on any effect unit's title) opens the full effects. Each unit has its knobs and an on/off rocker with a light. Dimmed knobs (REVERB DECAY, TONE, DRIP) are not active yet.</li>
+<li>BBD ECHO and OIL CAN each have a <b>SYNC</b> rocker and a <b>DIVISION</b> chip (picking a division also switches SYNC on), and a <b>PLAYS</b> readout of the time really playing, for example PLAYS 1/8. &middot; 375 ms.</li>
+</ul>
+<div class="callout note"><span class="t">Not on the tablet (yet)</span>
+There is no undo and no step sequencer on the tablet, and no on-screen tempo: synced modulators and echoes run at 120 BPM.</div>
+
+<!-- ============================================================ PART 4 === -->
+<section class="part">
+  <div class="stripe"><div style="background:#fa882c"></div><div style="background:#f2c02e"></div><div style="background:#a4c440"></div><div style="background:#30baac"></div></div>
+  <div class="no">PART 4</div>
+  <h1>On Windows: ORBIT</h1>
+  <p>The VST3 plugin and the standalone app, and ORBIT, the second engine: three layers of sound combined
+  with impulses along five dimensions, and blended by a moving puck.</p>
+  <img src="img/orbit/blender.jpg" style="width:2.4in;border-radius:14pt">
+</section>
+
+<!-- =============================================================== 19 === -->
+<h2 class="chapter" id="win"><span class="num">19</span>Atomic Lounge on Windows</h2>
+<p class="lede">On Windows, Atomic Lounge is a VST3 instrument for your DAW and a standalone app. Both have two engines:
+<b>REGOLITH</b>, the synthesizer described in Part 1, and <b>ORBIT</b>, the poly-convolution engine of the next chapters.</p>
+<figure><img class="tablet" src="img/orbit/plugin_window.jpg"><figcaption>The plugin window in ORBIT mode, captured from the running plugin (factory preset RUSTED SATELLITE).</figcaption></figure>
+<h3>What is in the download</h3>
+<table>
+<thead><tr><th>File</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td class="k">Atomic Lounge.vst3</td><td>The VST3 plugin (a folder). For any DAW that loads VST3 instruments on Windows 10 or 11 (64-bit).</td></tr>
+<tr><td class="k">Atomic Lounge.exe</td><td>The standalone app: the same instrument in its own window, no DAW needed.</td></tr>
+<tr><td class="k">Atomic-Lounge-User-Guide.pdf</td><td>This guide.</td></tr>
+<tr><td class="k">LICENSE, RELEASE-NOTES.txt</td><td>The licence (AGPL-3.0) and what is new in this version. The checksums of the download are in RELEASE.txt next to it on the release page.</td></tr>
+</tbody></table>
+<h3>Installing</h3>
+<ol class="steps">
+<li><b>Plugin:</b> copy the whole <code>Atomic Lounge.vst3</code> folder into <code>C:\Program Files\Common Files\VST3\</code> (Windows asks for administrator rights), then let your DAW rescan its plugins. Atomic Lounge appears as an instrument by <b>Atomic Lounge</b>.
+If you installed an earlier build as <code>Vintage Chonk.vst3</code>, delete that folder: the new one replaces it, and projects that used it find the new
+one (the plugin's identity is unchanged), with their sound as it was.</li>
+<li><b>Standalone:</b> put <code>Atomic Lounge.exe</code> anywhere and double-click it. Click <span class="tab">Options</span> at the top of its window, choose <b>Audio/MIDI Settings</b>, and pick your audio output and your MIDI keyboard. The app remembers them.</li>
+<li>Both use Microsoft's WebView2 to draw the panel. It is part of Windows 10 and 11. Each program that hosts Atomic Lounge (your DAW, the
+standalone app) keeps its own WebView2 folder, <code>%LOCALAPPDATA%\Atomic Lounge\WebView2\&lt;program name&gt;</code>, so the standalone app and a DAW
+can show their panels at the same time. If WebView2 cannot start, the window says why, with an error code, and offers <span class="tab">Retry</span>;
+if it says the runtime is missing, install the "WebView2 Runtime" from Microsoft.</li>
+</ol>
+<div class="callout tip"><span class="t">No keyboard to hand?</span>
+Click the panel once, then play on the computer keyboard: <b>A S D F G H J K L</b> play the white keys from C, <b>W E T Y U O P</b> the black keys.</div>
+<h3>Two engines: REGOLITH and ORBIT</h3>
+<p>The switch <span class="tab">REGOLITH | ORBIT</span> sits in the header of the ORBIT panel and in the foot bar of the REGOLITH panel.
+Switching cross-fades the two engines in 30 ms, so it can be done while you play. The mode is saved with your project. Projects saved with
+Vintage Chonk 1.0.0 open in REGOLITH mode, and projects saved with 1.1.0 open in the mode they were saved in (CHONK is now called REGOLITH),
+and all of them sound exactly as before.</p>
+<table>
+<thead><tr><th></th><th>REGOLITH</th><th>ORBIT</th></tr></thead>
+<tbody>
+<tr><td class="k">What it is</td><td>The synthesizer of Part 1: 3 oscillators, 2 filters, 4 envelopes, 4 modulators, 8 macros</td><td>Three layers of samples, REGOLITH synths or live input, each combined with an impulse, blended on the orbit field</td></tr>
+<tr><td class="k">Host programs</td><td>1-16: the 16 factory presets</td><td>17-24: "ORBIT - RUSTED SATELLITE" to "ORBIT - THREE-BODY ORBIT"; 25 and up: the 1.2.0 presets (chapter 24)</td></tr>
+<tr><td class="k">Automation</td><td>22 parameters (macros, master, filters, mod osc, effects, glide)</td><td>Parameters named "ORBIT ...": puck X/Y, rate, wobble, spread, drift, tape age, output, per layer level, BODY, TONE, GRAIN, MOTION, PITCH, cutoff, resonance, the six effects, macros 1-4; new in 1.2.0: motion on/off, puck drift, input trim, and per layer source input, impulse input and input gate</td></tr>
+<tr><td class="k">Latency at 48 kHz</td><td>104 samples (2.2 ms)</td><td>347 samples (7.2 ms)</td></tr>
+<tr><td class="k">Effects</td><td colspan="2">The same six: OCT FUZZ, TAPE, ENSEMBLE, BBD ECHO, OIL CAN, TWIN TANK / SPRING (chapter 7)</td></tr>
+</tbody></table>
+<p>Choosing one of the programs 17 and up in your DAW's program list switches to ORBIT and loads that preset; choosing 1-16 switches back to
+REGOLITH. Both modes keep their own sound while the other one plays, so you can go back and forth.</p>
+
+<!-- =============================================================== 20 === -->
+<h2 class="chapter" id="orbit"><span class="num">20</span>ORBIT: the idea</h2>
+<p class="lede">ORBIT makes new sounds by letting one sound take on qualities of another. You play a <b>source</b>; ORBIT combines it with an
+<b>impulse</b>; and you choose <i>which</i> qualities cross over: the room it rings in, its colour, its texture, its rhythm or its
+overtones. Three such layers are blended by a puck that moves around a field.</p>
+<figure><!--INCLUDE orbitflow--><figcaption>The ORBIT signal flow: three layers, the blender, the master section.</figcaption></figure>
+<p>This is <b>poly-convolution and cross-synthesis</b>: well-known signal-processing techniques, put together here as an original
+design. Classic convolution (how convolution reverbs work) is one of the five dimensions; the other four split it into separate
+qualities you can dial in on their own.</p>
+<h3>A layer</h3>
+<figure><img class="tablet" src="img/orbit/layer2.jpg"><figcaption>Layer 2 of RUSTED SATELLITE: the LAYER tab with its level, the SOURCE window, the &#x2733; that joins it to the IMPULSE, the CONVOLVE MATRIX, the FILTER and the AMP envelope.</figcaption></figure>
+<table>
+<thead><tr><th>Part</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td class="k">LAYER</td><td>Its number, a lamp that lights while it sounds, and <span class="tab">LEVEL</span>.</td></tr>
+<tr><td class="k">SOURCE</td><td>What you play. <span class="tab">SAMPLE</span>, <span class="tab">SYNTH</span> or <span class="tab">INPUT</span> (the live sidechain audio, chapter 27). Click the window or the name for the source inspector.</td></tr>
+<tr><td class="k">IMPULSE</td><td>What the source is combined with. <span class="tab">SMP</span> (a sample or a generated impulse), <span class="tab">SYN</span> (a REGOLITH sound printed as an impulse), <span class="tab">LIVE</span> (another layer, as it plays) or <span class="tab">INPUT</span> (the live sidechain audio). Click it for the impulse inspector.</td></tr>
+<tr><td class="k">CONVOLVE MATRIX</td><td>Five sliders, BODY, TONE, GRAIN, MOTION and PITCH, with nixie readouts (chapter 21).</td></tr>
+<tr><td class="k">FILTER</td><td>Click the type for LADDER 24, SVF LOW, SVF BAND, SVF HIGH or off; <span class="tab">CUTOFF</span>, <span class="tab">RES</span>. Below, the envelope window: drag the points of the AMP envelope; click its tag for the FILTER envelope.</td></tr>
+</tbody></table>
+<h3>Sources: what you play</h3>
+<ul>
+<li><b>REGOLITH synth</b> (<span class="tab">SYNTH</span>): a full REGOLITH voice playing any REGOLITH factory or user preset. It follows your notes like any synth.</li>
+<li><b>Sample file</b>: a WAV, AIFF or FLAC of your own (chapter 25). ORBIT finds its root note and plays it across the keyboard.</li>
+<li><b>REGOLITH print</b>: a REGOLITH preset recorded once to a sample, at a note and length you choose, then played like a sample. Prints can loop, stretch and run through tape mode, which a live synth cannot.</li>
+<li><b>Live input</b> (<span class="tab">INPUT</span>): whatever arrives on the plugin's sidechain input, from another track (chapter 27).</li>
+</ul>
+<h3>Impulses: what it is combined with</h3>
+<ul>
+<li><b>Factory impulses</b>, generated by ORBIT itself: SPRING TANK, PLATE, WOOD BOX, BOWED METAL, TAPE HISS, FORMANT VOX, METAL HIT and GLASS. <span class="tab">VARY</span> makes a new variation, <span class="tab">SIZE</span> sets the length.</li>
+<li><b>Sample file</b>: any recording. A short knock gives a body, a long note gives a texture.</li>
+<li><b>REGOLITH print</b>: a REGOLITH sound printed as the impulse.</li>
+<li><b>LIVE layer</b>: the running output of another layer. Two sounds you play are crossed with each other, note by note. LIVE works for TONE, GRAIN, MOTION and PITCH; BODY needs a fixed impulse.</li>
+<li><b>Live input</b> (<span class="tab">INPUT</span>): the sidechain audio from another track. Unlike LIVE it works for all five dimensions, BODY included (chapter 27).</li>
+</ul>
+<p>The impulse inspector shapes the impulse: <span class="tab">START</span>, <span class="tab">LENGTH</span> (up to 6 s), <span class="tab">PITCH</span>, <span class="tab">DAMP</span> (darker),
+<span class="tab">DECAY</span> (shorter or longer tail), <span class="tab">AGE</span> (worn tape), <span class="tab">BODY GAIN</span>, <span class="tab">REVERSE</span> and
+<span class="tab">KEYTRACK</span>, and how TONE, GRAIN and PITCH read it (next chapter).</p>
+<div class="grid2">
+<figure><img class="tablet" src="img/orbit/insp_source.jpg"><figcaption>Source inspector, layer 2: a REGOLITH print of Iron Bell at G3, looped. Scroll it for the tape controls.</figcaption></figure>
+<figure><img class="tablet" src="img/orbit/insp_impulse.jpg"><figcaption>Impulse inspector, layer 1: the generated SPRING TANK and its shaping.</figcaption></figure>
+</div>
+
+<!-- =============================================================== 21 === -->
+<h2 class="chapter" id="dims"><span class="num">21</span>The five dimensions</h2>
+<p class="lede">Each layer's <b>CONVOLVE MATRIX</b> has five sliders. Each one lets a different quality of the impulse cross over into the
+source. At 0 that quality is left alone; all five at 0 is the plain source. Mix them: that is where ORBIT's sounds are.</p>
+<div class="pagepair">
+<figure><img class="tablet" src="img/orbit/matrix.jpg"><figcaption>Layer 1 of RUSTED SATELLITE: BODY 72, TONE 40, GRAIN 18, MOTION 0, PITCH 35.</figcaption></figure>
+<div>
+<table>
+<thead><tr><th>Slider</th><th>What crosses over</th></tr></thead>
+<tbody>
+<tr><td class="k">BODY</td><td>The whole impulse: its resonance, space and smear. True convolution.</td></tr>
+<tr><td class="k">TONE</td><td>Only its colour (EQ, formants). The source keeps its own waveform.</td></tr>
+<tr><td class="k">GRAIN</td><td>Only its texture (noise, roughness, fine detail). The source keeps its colour.</td></tr>
+<tr><td class="k">MOTION</td><td>Its loudness shape and its hits: rhythm, swells, chops.</td></tr>
+<tr><td class="k">PITCH</td><td>Its overtones, re-tuned to the note you play.</td></tr>
+</tbody></table>
+</div>
+</div>
+<h3>In plain words</h3>
+<table>
+<thead><tr><th>Dimension</th><th>Try this</th><th>What you hear</th></tr></thead>
+<tbody>
+<tr><td class="k">BODY</td><td>A pad, impulse SPRING TANK, BODY 80</td><td>The pad played inside a spring reverb tank: it rings, splashes and wobbles. With WOOD BOX, a pluck becomes a marimba bar on a hollow box.</td></tr>
+<tr><td class="k">TONE</td><td>A string pad, impulse FORMANT VOX, TONE 90</td><td>The strings sing "aah" and "ooh": they keep their notes and their bite, but take the voice's colour. Like an EQ that copies another sound and keeps moving with it.</td></tr>
+<tr><td class="k">GRAIN</td><td>A soft pad, impulse TAPE HISS or METAL HIT, GRAIN 60</td><td>The pad's surface turns breathy or rusty, while its brightness stays where it was.</td></tr>
+<tr><td class="k">MOTION</td><td>A held chord, impulse METAL HIT, MOTION 75</td><td>The chord is chopped and pumped by the hits' rhythm. With BOWED METAL it swells and breathes instead.</td></tr>
+<tr><td class="k">PITCH</td><td>A pad, impulse GLASS, PITCH 60</td><td>A glassy shimmer on top that follows your chords in tune: the glass's overtones moved onto your notes.</td></tr>
+</tbody></table>
+<div class="callout tip"><span class="t">Good starting points</span>
+BODY 100 and the rest 0 is a classic convolution: your sound in that space or object. TONE alone is a living "EQ match".
+GRAIN and MOTION together give cross-synthesis textures. Small amounts of everything are often the most organic.</div>
+<h3>Reading the impulse: scan</h3>
+<p>BODY uses the whole impulse at once. TONE, GRAIN and PITCH instead read the impulse as a stream that moves while you hold a note:
+<span class="tab">SCAN RATE</span> sets how fast (0 freezes it at <span class="tab">SCAN POS</span>), <span class="tab">SCAN LOOP</span> starts it again at the end,
+and <span class="tab">IR PITCH</span> plays the stream higher or lower. A slow scan through a long impulse makes a sound that keeps changing; a frozen
+scan makes a still, held colour.</p>
+<h3>KEYTRACK</h3>
+<p>Normally the impulse sounds at one pitch for every note. With <span class="tab">KEYTRACK</span> on (in the impulse inspector, or KEYTRACK BODY on a sample
+source), each note gets its own copy of the impulse tuned to that note, so a wood box or a bell body is in tune all over the keyboard.
+It costs more processing, so use it where pitch matters.</p>
+
+<!-- =============================================================== 22 === -->
+<h2 class="chapter" id="blender"><span class="num">22</span>The orbit blender</h2>
+<p class="lede">The round screen on the right decides how much of each layer you hear. It has four nodes, <b>1</b>, <b>2</b>, <b>3</b> and <b>DRY</b>, and a
+glowing <b>puck</b>. The closer the puck is to a node, the more of that layer you hear. Move the puck and the sound morphs.</p>
+<div class="pagepair">
+<figure><img class="tablet" src="img/orbit/blender.jpg"><figcaption>RUSTED SATELLITE: a drawn loop. The nixies below show the blend: L1, L2, L3 and DRY in percent.</figcaption></figure>
+<div>
+<h4>The parts</h4>
+<ul>
+<li><b>Nodes 1-3</b>: the three layers. <b>DRY</b>: the sources without the matrix (the plain sound). Drag any node to a new place.</li>
+<li><b>The puck</b>: where you are listening. Its trail shows its path.</li>
+<li><b>Motion and paths</b>: the <span class="tab">MOTION</span> switch (ON / OFF; off holds the puck), then <span class="tab">CIRCLE</span>, <span class="tab">FIG 8</span>, <span class="tab">DRAWN</span>.</li>
+<li><span class="tab">RATE</span>: how long one trip takes (in bars when SYNC is ON, in seconds when FREE). At its lowest, FREE, it reads STOP.</li>
+<li><span class="tab">WOBBLE</span>: a slow random wander off the moving path, so no two trips are the same.</li>
+<li><span class="tab">PUCK DRIFT</span>: the same wander for a held puck (0 = it stays exactly where you put it).</li>
+<li><span class="tab">SPREAD</span>: the size of the path.</li>
+<li><span class="tab">SYNC</span> ON / FREE and <span class="tab">DIRECTION</span> CW / CCW.</li>
+</ul>
+</div>
+</div>
+<h3>The four paths</h3>
+<table>
+<thead><tr><th>Path</th><th>What the puck does</th><th>On the field</th></tr></thead>
+<tbody>
+<tr><td class="k">MOTION OFF</td><td>Stays exactly where you put it.</td><td>Click or drag to place it.</td></tr>
+<tr><td class="k">CIRCLE</td><td>Goes round in a circle.</td><td>Drag to move the circle; SPREAD sets its size.</td></tr>
+<tr><td class="k">FIG 8</td><td>Traces a figure of eight: it visits two sides in turn.</td><td>Drag to move it.</td></tr>
+<tr><td class="k">DRAWN</td><td>Follows a loop you draw.</td><td>Drag on the screen to draw.</td></tr>
+</tbody></table>
+<div class="grid2">
+<div>
+<h3 style="margin-top:4pt">Drawing a path</h3>
+<ol class="steps">
+<li>Click <span class="tab">DRAWN</span>. The screen says DRAG ON THE SCREEN TO DRAW A LOOP.</li>
+<li>Press on the screen and draw a loop through the places you want to visit: closer to a node to hear that layer more. Let go.</li>
+<li>ORBIT smooths it, closes it and shows ORBIT PATH DRAWN. The puck now travels your loop at the RATE you set.</li>
+<li>To draw a new one, click <span class="tab">DRAWN</span> again and draw over it. SPREAD makes the loop larger or smaller around its centre.</li>
+</ol>
+<p>A loop that hugs one node and then swings past the others gives a sound that rests, then wanders. A small loop near the middle gives
+gentle, constant motion.</p>
+</div>
+<figure><img class="tablet" src="img/orbit/blender_circle.jpg"><figcaption>The same preset with the CIRCLE path.</figcaption></figure>
+</div>
+<h3 id="hold">Holding the orbit</h3>
+<p>The orbit does not have to move. With <span class="tab">MOTION</span> OFF the puck stays exactly where you put it and the blend of the four nodes is
+fixed: a steady sound you can still play and shape with the matrix, the filters and the macros. New patches start this way, held at a
+sensible point between the nodes.</p>
+<ul>
+<li><b>Park it by hand.</b> Drag the puck while it moves: it stops where you let go and MOTION goes OFF. The path you had (CIRCLE, FIG 8 or
+DRAWN) is kept.</li>
+<li><b>Start it again.</b> Double-click the field, or switch MOTION ON: the puck carries on along the path it had.</li>
+<li><b>Stop means stop.</b> RATE at its lowest (FREE) reads STOP: the puck stands on its path, with no slow creep.</li>
+<li><b>Only PUCK DRIFT moves a held puck.</b> WOBBLE belongs to the moving path; DRIFT detunes and darkens slowly but does not touch the puck.
+PUCK DRIFT (default 0) lets a held puck wander a little, if you want that.</li>
+</ul>
+<div class="callout note"><span class="t">Automation and macros</span>
+<b>ORBIT Puck X</b> and <b>ORBIT Puck Y</b> are host parameters: with MOTION OFF they move the parked puck, smoothly (no zipper noise), and the panel
+follows them as they play. Dragging the puck by hand writes the same parameters, so a DAW in write or touch mode records your hand movement.
+<b>ORBIT Motion</b> starts and stops the orbit from the DAW. Macros and the mod matrix (destinations PUCK X, PUCK Y) add on top of the parked
+position, so a macro can sweep the blend by hand while automation sets where it rests. The puck position is also a modulation source
+(ORBIT X, ORBIT Y).
+Projects saved with 1.1.0 keep their old behaviour, in which WOBBLE also moved a held puck.</div>
+
+<!-- =============================================================== 23 === -->
+<h2 class="chapter" id="orbitmod"><span class="num">23</span>Modulation and macros in ORBIT</h2>
+<p class="lede">Almost every knob and slider in ORBIT can be moved by a modulation source: matrix amounts, levels, filters, the puck, the
+orbit's rate, wobble and spread, the impulse scan, drift and more.</p>
+<figure><img class="tablet" src="img/orbit/bottom.jpg"><figcaption>The bottom row: MASTER (DRIFT, TAPE AGE), the six EFFECTS, the four MACROS with ASSIGN, and OUTPUT with its VU meter.</figcaption></figure>
+<h3>Macros</h3>
+<ol class="steps">
+<li>Click a macro's number (1-4). A bar at the top says ASSIGN MACRO 1: CLICK A KNOB, SLIDER OR NODE.</li>
+<li>Click the control it should move. The routing is made with a moderate amount. Press Esc or click the bar to stop assigning.</li>
+<li>Double-click the macro's name to rename it (BLOOM, RUST...). Turn the macro: everything it is routed to moves together.</li>
+</ol>
+<figure><img class="tablet" src="img/orbit/assign_mode.jpg"><figcaption>Assigning macro 1: every control it can move is outlined.</figcaption></figure>
+<p>Macros 1-4 are also host parameters (<b>ORBIT Macro 1-4</b>), so a DAW controller or automation can play them.</p>
+<div class="pagepair">
+<figure><img class="tablet" src="img/orbit/modlist.jpg"><figcaption>ASSIGN &#9662;: the modulation list of RUSTED SATELLITE.</figcaption></figure>
+<div>
+<h4>The modulation list</h4>
+<p>Click <span class="tab">ASSIGN &#9662;</span> for every routing of the sound (up to 32). Drag a routing's bar left or right to set its amount
+(&minus;100 % to +100 %); &times; removes it. The buttons on top pick any source; then click a control on the panel.</p>
+<h4>Sources</h4>
+<table>
+<tbody>
+<tr><td class="k">MACRO 1-4</td><td>the four macro knobs</td></tr>
+<tr><td class="k">MOD WHEEL, AFTERTOUCH</td><td>from your keyboard</td></tr>
+<tr><td class="k">VELOCITY, NOTE</td><td>of the last note played</td></tr>
+<tr><td class="k">LFO 1, LFO 2</td><td>slow internal sine waves</td></tr>
+<tr><td class="k">EXT1 BAR SINE</td><td>a sine wave one bar long, in time with the host</td></tr>
+<tr><td class="k">EXT2 STEPPER</td><td>16th-note accents, in time</td></tr>
+<tr><td class="k">EXT3 S&amp;H</td><td>a new random value every 8th note</td></tr>
+<tr><td class="k">EXT6 NOTE ENV</td><td>an envelope started by each note</td></tr>
+<tr><td class="k">EXT7 BEAT</td><td>a ramp that rises over each beat</td></tr>
+<tr><td class="k">EXT8 WALK</td><td>a slow random walk</td></tr>
+</tbody></table>
+</div>
+</div>
+<h3>The master section</h3>
+<ul>
+<li><span class="tab">DRIFT</span>: every voice drifts a little in pitch, filter and impulse pitch, and the knobs wander slowly. The DRIFT lamp in the header lights when it is on. Nothing stays perfectly still: the analog feel.</li>
+<li><span class="tab">TAPE AGE</span>: the whole output as if played from old tape: highs roll off.</li>
+<li><b>EFFECTS</b>: the six REGOLITH effects in series (chapter 7). The lamp on each unit switches it on or off; drag its knob for the amount.
+Click ENSEMBLE's name for its mode, TWIN TANK's name for SPRING, and the BBD ECHO and OIL CAN values for tempo sync.</li>
+<li><span class="tab">OUTPUT</span>: the overall level, with a VU meter and a peak lamp.</li>
+</ul>
+
+<!-- =============================================================== 24 === -->
+<h2 class="chapter" id="orbitpresets"><span class="num">24</span>The ORBIT factory presets</h2>
+<p class="lede">The factory presets show what ORBIT does. They are made only from the generated impulses and REGOLITH sounds (and, in the INPUT
+presets, whatever you feed them), and their levels are matched: each sits near the same loudness and peaks below &minus;1 dBFS. Open them with
+<span class="tab">BROWSE</span> (or the name), step with &#9664; &#9654;, or pick programs 17 and up in your DAW.</p>
+<div class="pagepair">
+<figure><img class="tablet" src="img/orbit/browse.jpg"><figcaption>BROWSE: factory presets on the left, your own on the right.</figcaption></figure>
+<div>
+<h4>Saving your own</h4>
+<p><span class="tab">SAVE</span> asks for a name and stores the preset in <code>%APPDATA%\Atomic Lounge\orbit</code>, with its samples inside it (up to 24 MB
+each). Your presets appear under USER in the browser; &times; deletes one. Presets saved by earlier versions in
+<code>%APPDATA%\Vintage Chonk\orbit</code> are still found while the new folder does not exist; nothing is moved or deleted.</p>
+</div>
+</div>
+<table>
+<thead><tr><th>Preset</th><th>What it is</th><th>Macros</th></tr></thead>
+<tbody>
+<tr><td class="k">RUSTED SATELLITE</td><td>Walnut Bass inside a spring tank; an Iron Bell print on tape, coloured and roughened by a Glass Pluck; a Night Wind choir crossed LIVE with the bass. A drawn loop over two bars.</td><td>BLOOM, RUST, ORBIT SPEED, GRAIN</td></tr>
+<tr><td class="k">BOWED HALO</td><td>Velvet Pad in bowed metal, Silk Strings with a glass shimmer (PITCH). A slow circle over eight bars.</td><td>SHIMMER, METAL, DARK, WOBBLE</td></tr>
+<tr><td class="k">BREATHING TAPE CHOIR</td><td>Two pads given voice colours by FORMANT VOX (TONE), plus a looped breath shaped by the voice. Figure of eight; the mod wheel adds grain.</td><td>BREATH, VOWEL</td></tr>
+<tr><td class="k">SPRING RAIN</td><td>Bell drops in a spring tank, wind chopped into rain by metal hits (MOTION), a dark pad under them, spring reverb. Play single high notes.</td><td>STORM, SPRING</td></tr>
+<tr><td class="k">WOOD BOX MARIMBA</td><td>A Glass Pluck print struck inside a wood box, KEYTRACK on, so every note is in tune; a soft tine behind it.</td><td>HOLLOW</td></tr>
+<tr><td class="k">LIVE CROSS DRONE</td><td>Walnut Bass as the root; Silk Strings wearing the bass LIVE (TONE and GRAIN); iron air from bowed metal. A drawn loop over 16 bars; the random walk moves the bass filter.</td><td>CROSS</td></tr>
+<tr><td class="k">MOTION CHOP</td><td>A pad chopped by metal hits and 16th-note accents, a metal stab scanned in time with the beat, a dotted-eighth echo.</td><td>CHOP, GRIT</td></tr>
+<tr><td class="k">THREE-BODY ORBIT</td><td>Plate pad, glass strings an octave up (PITCH), a voiced wind (TONE). A circle over four bars between three evenly placed bodies.</td><td>GRAVITY, SPEED</td></tr>
+</tbody></table>
+<p>SPRING RAIN, WOOD BOX MARIMBA and MOTION CHOP hold the puck; RUSTED SATELLITE, BOWED HALO, BREATHING TAPE CHOIR, LIVE CROSS DRONE and
+THREE-BODY ORBIT are the moving showcases. These eight are unchanged from 1.1.0, so songs that use them sound the same.</p>
+<h3>New in 1.2.0 (programs 25 and up)</h3>
+<p>The INPUT presets need audio on the sidechain input (chapter 27): with nothing fed they stay quiet or play only their synth layer.
+They and the other new presets hold the puck at a fixed blend; a macro moves it by hand.</p>
+<table>
+<thead><tr><th>Preset</th><th>What it is</th><th>Macros</th></tr></thead>
+<tbody>
+<tr><td class="k">INPUT - SPRING THROAT</td><td>A REGOLITH synth layer whose BODY impulse is the live input: your drums, voice or guitar become the room the synth rings
+in, refreshed all the time. Held puck.</td><td>a macro sweeps the puck</td></tr>
+<tr><td class="k">INPUT - HALO FOLLOWER</td><td>The live input itself as a source (GATE THRU) inside a bowed-metal / plate body, with a pad layer that takes its colour
+(TONE) from the input. Held puck.</td><td>a macro sweeps the puck</td></tr>
+<tr><td class="k">Held-blend presets</td><td>New presets with the puck parked at a fixed blend, each with a macro on PUCK X / PUCK Y to move it by hand.</td><td>a macro on the puck</td></tr>
+</tbody></table>
+
+<!-- =============================================================== 25 === -->
+<h2 class="chapter" id="samples"><span class="num">25</span>Samples, projects and latency</h2>
+<h3>Loading a sample</h3>
+<ol class="steps">
+<li><b>Drag and drop</b> a WAV, AIFF or FLAC file from Explorer onto a layer's SOURCE window or IMPULSE window. The window says DROP A SAMPLE HERE (or DROP AN IMPULSE HERE) while you hold it there.</li>
+<li>Or click the window, choose <span class="tab">SAMPLE FILE</span> in the inspector and <span class="tab">LOAD FILE</span>, which opens a Windows file dialog.</li>
+<li>ORBIT reads the file (up to 120 s) and detects its root note (shown as DETECTED, with cents). Change <span class="tab">ROOT</span> if it guessed wrong; <span class="tab">USE</span> takes the detected note again.</li>
+</ol>
+<p>Source samples have <span class="tab">START</span>, <span class="tab">VEL&gt;START</span> (harder notes start later in the file), <span class="tab">LOOP</span> with
+<span class="tab">LOOP IN</span>, <span class="tab">LOOP OUT</span> and <span class="tab">X-FADE</span>, <span class="tab">REVERSE</span>, <span class="tab">STRETCH</span> (longer or shorter without
+changing pitch), and <span class="tab">TAPE</span> mode with <span class="tab">WOW</span>, <span class="tab">FLUTTER</span>, <span class="tab">BUMP</span> and <span class="tab">HISS</span>.</p>
+<h3>Samples are saved inside your project</h3>
+<p>When you save your DAW project (or an ORBIT preset), every sample up to 24 MB is stored <b>inside it</b>, losslessly, together with its file path. The
+project opens on another computer, or after the file was moved or deleted. The inspector says <b>EMBEDDED IN THE PROJECT</b>. Larger files are kept
+by path only (TOO LARGE TO EMBED: KEPT BY PATH): keep them where they are. If a sample can be found neither inside the project nor at its path, the
+layer shows <b>MISSING</b> and the rest of the sound still plays. Dropped files are also copied to <code>%APPDATA%\Atomic Lounge\samples</code> (files kept in the old <code>%APPDATA%\Vintage Chonk\samples</code>
+folder by earlier versions are still found there).</p>
+<div class="callout warn"><span class="t">Only use audio you may use</span>
+Your own recordings, the generated impulses and REGOLITH prints are always fine. If you share projects or music made with other people's samples,
+check their licences: an embedded sample travels with the project.</div>
+<h3>Latency</h3>
+<p>TONE, GRAIN and PITCH analyse the sound in short slices, and the effects run at their own rate between two converters. Together that makes
+ORBIT <b>347 samples late at 48 kHz (about 7.2 ms)</b>. The plugin tells your DAW, which shifts the track back so it lines up with the rest of
+your song. REGOLITH mode is 104 samples (2.2 ms). For the live input, see chapter 27. The status in the header shows the voices, the CPU load and the latency.</p>
+<ul>
+<li>When you play live, 7 ms is like standing two metres from your amplifier. If it feels late, lower your audio interface's buffer size.</li>
+<li>Switching between REGOLITH and ORBIT changes the latency; some DAWs only pick that up when playback stops and starts again.</li>
+</ul>
+<h3>Processing power</h3>
+<p>Three layers with long impulses and all five dimensions use about 10-12 % of one processor core at 48 kHz. KEYTRACK on long impulses costs the most;
+SPREAD, RATE and the effects cost very little.</p>
+
+<!-- =============================================================== 26 === -->
+<h2 class="chapter" id="organic"><span class="num">26</span>Tips for organic sound design</h2>
+<p class="lede">ORBIT sounds most alive when things move a little, all the time, and when the sounds you combine are not too alike.</p>
+<div class="grid2">
+<div>
+<h4>Start simple</h4>
+<ul>
+<li>Begin with one layer and one dimension. Find what BODY does to your sound, then try TONE alone, then GRAIN. Add the second layer only when the first one is interesting.</li>
+<li>Pair opposites: a smooth pad with a noisy impulse, a plucky source with a long swelling impulse, a dark bass with a glassy impulse.</li>
+<li>Keep the DRY node somewhere on the path: coming back to the plain sound makes the changes feel deliberate.</li>
+</ul>
+<h4>Keep it moving</h4>
+<ul>
+<li>Use slow paths (8 or 16 bars) with a little WOBBLE: the sound never repeats exactly.</li>
+<li>Give TONE or GRAIN a slow SCAN RATE through a long impulse: the colour keeps evolving while you hold a chord.</li>
+<li>Route EXT8 WALK or LFO 1 to a matrix slider with a small amount (10-20 %).</li>
+<li>Turn DRIFT up to 20-40 %: voices drift apart like an old analog synth.</li>
+</ul>
+</div>
+<div>
+<h4>Make it feel physical</h4>
+<ul>
+<li>BODY with WOOD BOX, PLATE or SPRING TANK puts the sound inside an object. KEYTRACK keeps resonant bodies in tune.</li>
+<li>DAMP and DECAY on the impulse are like choosing a smaller, softer room.</li>
+<li>Tape mode on samples, AGE on impulses and TAPE AGE on the master add the worn edges of old recordings.</li>
+<li>Velocity to START (VEL&gt;START) makes soft and hard notes sound different, as on a real instrument.</li>
+</ul>
+<h4>Record your own impulses</h4>
+<ul>
+<li>Knock on a box, a pot, a guitar body; drop a key on a table; brush a cymbal. A phone recording is enough.</li>
+<li>Short knocks are bodies (BODY); rustles and hiss are textures (GRAIN); rhythmic sounds are grooves (MOTION); sung or played notes are colours and tunings (TONE, PITCH).</li>
+<li>Try LIVE: play a bass line on one layer and let a pad wear it.</li>
+</ul>
+</div>
+</div>
+<div class="callout tip"><span class="t">Level</span>
+Several layers with high BODY can get loud. Watch the VU meter and the peak lamp, and use OUTPUT rather than turning every layer down. The factory
+presets peak below &minus;1 dBFS as a guide.</div>
+
+<!-- ============================================================ PART 4 === -->
+<!-- =============================================================== 27 === -->
+<h2 class="chapter" id="input"><span class="num">27</span>Live input: other tracks through ORBIT</h2>
+<p class="lede">ORBIT can take the sound of another track, live, and use it as a layer's source or as its impulse: a drum loop becomes the room
+a pad rings in, a voice colours a synth, a guitar is played through a spring made of your own sounds.</p>
+<h3>The sidechain input</h3>
+<p>Atomic Lounge has one audio input, named <b>Sidechain</b>: input bus 0, a VST3 sidechain (aux) bus, stereo (mono is accepted: both sides get
+the same signal), switched on by default. Your DAW feeds it from another track. REGOLITH ignores it; in ORBIT it is a choice wherever a layer's
+source or impulse is picked.</p>
+<table>
+<thead><tr><th>Where</th><th>Choose</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td class="k">SOURCE</td><td><span class="tab">INPUT</span>, next to SAMPLE and SYNTH</td><td>The input <i>is</i> the layer's sound, through its matrix, filter and level.
+<span class="tab">GATE</span> <b>THRU</b> (default): it plays whenever audio arrives, notes or not. <b>NOTE</b>: notes open it, shaped by the layer's AMP envelope
+(and velocity).</td></tr>
+<tr><td class="k">IMPULSE</td><td><span class="tab">INPUT</span>, next to SMP, SYN and LIVE</td><td>The input is what the source is combined with, in all five dimensions (below).</td></tr>
+<tr><td class="k">TRIM</td><td>-24 to +24 dB</td><td>The input level before ORBIT uses it, with a small <b>INPUT</b> meter beside it: check here first if nothing happens.</td></tr>
+</tbody></table>
+<h3>The five dimensions with INPUT as the impulse</h3>
+<ul>
+<li><b>BODY</b>: true convolution with the input. ORBIT keeps capturing the last <span class="tab">WINDOW</span> of input (100, 250, 500 or 1000 ms;
+250 ms by default) and makes a new body from it about every 140 ms (6720 samples at 48 kHz), cross-fading from the old body to the new one over 2048
+samples, so it never clicks or zips. Each body is set to the same energy, so its level does not jump when the input gets louder or softer; silence
+on the input gives a silent body (only the dry share of BODY is heard).</li>
+<li><b>TONE</b>, <b>GRAIN</b>, <b>PITCH</b> and <b>MOTION</b>: the input is the live modulator, as LIVE uses another layer: its colour, texture,
+overtones and loudness contour cross over as it plays.</li>
+</ul>
+<h3>Latency</h3>
+<p>As a <b>source</b>, the input comes out exactly as late as the plugin reports (347 samples, 7.2 ms at 48 kHz in ORBIT), and your DAW lines it
+up with the rest of the song. As a <b>BODY impulse</b>, a new body is captured every 140 ms; the newest sound on the input starts to fade into the body about
+97 ms after it arrives (4672 samples at 48 kHz with the 250 ms window; 4992 with 1000 ms) and is at full weight 2048 samples later
+(about 140 ms). That is part of the effect (a body is always a
+stretch of what came before), not something the DAW can make up. As the TONE, GRAIN, PITCH or MOTION modulator the input lines up with the
+source within the analysis window.</p>
+<h3>In Ableton Live</h3>
+<ol class="steps">
+<li>Put Atomic Lounge on a MIDI track and switch it to ORBIT.</li>
+<li>Open the plug-in device's sidechain section (the <b>Sidechain</b> toggle in the device's title bar), switch it on and choose the track to
+take in <b>Audio From</b> (pre or post its effects or mixer, as you like).</li>
+<li>In a layer, choose <span class="tab">INPUT</span> as the SOURCE or the IMPULSE, or load an INPUT preset. Watch the INPUT meter and set TRIM.</li>
+</ol>
+<div class="callout note"><span class="t">Not yet tried in Live 10</span>
+The sidechain bus is the standard VST3 one that Live uses for plug-in sidechains, but we have not tested it in Live 10 ourselves. If Live does
+not offer Audio From for the instrument, tell us which Live version you have.</div>
+<h3>In the standalone app</h3>
+<p>Click <span class="tab">Options</span>, then <b>Audio/MIDI Settings</b>, and pick the input channels of your audio interface. The input starts
+<b>muted</b>, to avoid feedback through speakers: untick <b>Mute audio input</b> to let it in. Use headphones, or keep the microphone away from the
+speakers.</p>
+<h3>Host parameters</h3>
+<table>
+<thead><tr><th>Parameter</th><th>Values</th></tr></thead>
+<tbody>
+<tr><td class="k">ORBIT L1 / L2 / L3 Source Input</td><td>1 = the layer's source is INPUT; 0 = its sample or synth again</td></tr>
+<tr><td class="k">ORBIT L1 / L2 / L3 Impulse Input</td><td>1 = the layer's impulse is INPUT; 0 = its own impulse again</td></tr>
+<tr><td class="k">ORBIT L1 / L2 / L3 Input Gate</td><td>0 = THRU, 1 = NOTE</td></tr>
+<tr><td class="k">ORBIT Input Trim</td><td>-24 to +24 dB (middle = 0 dB)</td></tr>
+</tbody></table>
+
+<section class="part">
+  <div class="stripe"><div style="background:#fa882c"></div><div style="background:#f2c02e"></div><div style="background:#a4c440"></div><div style="background:#30baac"></div></div>
+  <div class="no">PART 5</div>
+  <h1>Tools and reference</h1>
+  <p>Bringing in Massive presets, MIDI details, fixes for common problems, a one-page card of every FM-1
+  gesture, and the credits.</p>
+  <img src="img/fm1/matrix.png" style="width:2.6in;image-rendering:pixelated">
+</section>
+
+<!-- =============================================================== 18 === -->
+<h2 class="chapter" id="convert"><span class="num">28</span>Converting Massive presets</h2>
+<p class="lede">Atomic Lounge can read presets from the original Native Instruments Massive (<code>.nmsv</code> files; not Massive X).
+The tablet converts them itself (<span class="tab">IMPORT .NMSV</span>, chapter 18). For the FM-1 there is a converter page in your browser.</p>
+<h3>The converter page</h3>
+<p>The page is one file, <code>editor/converter.html</code>. It works offline: your preset never leaves the computer. Open it in <b>Chrome or Edge</b>
+(they have Web MIDI).</p>
+<ol class="steps">
+<li><b>Load a Massive preset:</b> drop a <code>.nmsv</code> file on the page or click to choose one.</li>
+<li><b>What carries over:</b> four counters (supported, approximated, unsupported, Massive wavetables replaced) with lists you can open. Buttons: <b>Download .mfp</b> (an Atomic Lounge preset file), <b>Download IR JSON</b>, <b>Download report (.md)</b>.</li>
+<li><b>Key settings on the FM1:</b> cards for the oscillators, filters, envelopes, modulators 5-8, routings, effects and macros.</li>
+<li><b>FM1 over USB MIDI:</b> click <b>Connect MIDI</b> and allow SysEx. Choose the FM-1's ports in the Output and Input lists (the port is called <b>USB-Midi</b>). Click <b>Say hello</b> to check the link.</li>
+<li><b>Send to FM1 (play now)</b> puts the sound into the FM-1's edit buffer. To keep it, type a slot (1-64) and click <b>Store to slot</b>; it asks before overwriting.</li>
+</ol>
+<p class="small">The same section has <b>Load slot (play it)</b>, <b>Read slot</b>, <b>Read edit buffer</b> and <b>Download read .mfp</b>, for backing up your FM-1 sounds to files.
+The page does not change knobs live on the FM-1 and never installs firmware. (The page still carries an older "untested on hardware" banner.)</p>
+<h3>What converts, and how</h3>
+<table>
+<thead><tr><th>Massive</th><th>Atomic Lounge</th></tr></thead>
+<tbody>
+<tr><td class="k">Wavetables</td><td><b>Approximated:</b> each becomes the nearest classic waveform (triangle ... narrowest pulse). Listed under "wavetables replaced". Intensity modes become phase bend.</td></tr>
+<tr><td class="k">Filters</td><td>LP4, LP2, Bandpass, Bandreject: direct. Highpass 2 &rarr; HP. <b>Approximated:</b> HP4 as a 2-pole HP; Allpass, Scream, Daft &rarr; LP2; Comb &rarr; BP; Acid &rarr; ACID; Double Notch &rarr; one NOTCH.</td></tr>
+<tr><td class="k">Envelopes, LFOs, Performers, Steppers</td><td>Carried over to ENV 1-4 and slots 5-8. LFO curves are matched to the nearest wave and graded; most Performer shapes match the library.</td></tr>
+<tr><td class="k">Modulation</td><td>Envelopes, LFOs, macros, key, velocity, random and aftertouch routings, with depths scaled to match. More than 16 routings: the extra ones are dropped and reported.</td></tr>
+<tr><td class="k">Macros</td><td>The eight macro names and values.</td></tr>
+<tr><td class="k">Effects</td><td><b>Approximated:</b> Reverb &rarr; TWIN TANK; Chorus, Dimension Expander &rarr; ENSEMBLE; Flanger, Phaser &rarr; ENSEMBLE II; Delay &rarr; BBD ECHO; Tubes and the Clip / Sine Shaper / Parabolic Shaper inserts &rarr; TAPE drive. A synced Massive delay's note value becomes the nearest echo division. Other effects are not converted.</td></tr>
+<tr><td class="k">Voicing</td><td>Poly, mono and legato; Monorotate is approximated.</td></tr>
+</tbody></table>
+<div class="callout note"><span class="t">Expect the character, not a copy</span>
+The report always reminds you: Atomic Lounge uses its own original waveforms and its own filter designs. A converted preset keeps the
+structure and movement of the original, not an identical sound. Play with the macros and the master level (VOICE &rarr; MASTER) after converting.</div>
+
+<!-- =============================================================== 19 === -->
+<h2 class="chapter" id="midi"><span class="num">29</span>MIDI</h2>
+<div class="grid2">
+<div>
+<h3 style="margin-top:0">Connecting</h3>
+<ul>
+<li><b>FM-1:</b> connect USB-C to a computer. With this firmware it appears as <b>USB-Midi</b> (USB ID 3654:7756). Under M-VAVE's V15 it was <b>FM-1 Midi</b>.</li>
+<li><b>Tablet:</b> any class-compliant USB MIDI keyboard through an OTG adapter, or another MIDI device listed by Android's MIDI service.</li>
+<li>Both listen on <b>all 16 channels</b>.</li>
+</ul>
+<h3>What Atomic Lounge responds to</h3>
+<table><tbody>
+<tr><td class="k">Note on / off</td><td>with velocity</td></tr>
+<tr><td class="k">Pitch bend</td><td>range set by BEND</td></tr>
+<tr><td class="k">Channel aftertouch</td><td>source AFTT</td></tr>
+<tr><td class="k">CC 1</td><td>mod wheel (source MODW)</td></tr>
+<tr><td class="k">CC 16-23</td><td>macros 1-8</td></tr>
+<tr><td class="k">CC 64</td><td>sustain pedal</td></tr>
+<tr><td class="k">CC 120, 123</td><td>all sound / all notes off</td></tr>
+<tr><td class="k">Program change</td><td>FM-1 only: loads slot 1-64 (program 0 = slot 1)</td></tr>
+<tr><td class="k">MIDI clock</td><td>FM-1 only: the sequencer follows clock, Start, Stop, Continue and Song Position</td></tr>
+</tbody></table>
+</div>
+<div>
+<h3 style="margin-top:0">Tips</h3>
+<ul>
+<li>Map four knobs of your controller to <b>CC 16-19</b> and they play macros 1-4.</li>
+<li>A macro moved over MIDI keeps its value when you change presets, unless the new preset sets that macro itself.</li>
+<li>The FM-1's own keys play at a fixed velocity of 100; a USB keyboard's velocity is used.</li>
+<li>The FM-1 also speaks a SysEx protocol used by the converter page (read, play and store presets). You do not need to know it.</li>
+</ul>
+<div class="callout note"><span class="t">Not yet</span>
+The tablet ignores MIDI clock. No other CCs are mapped, and MIDI Learn is not available. The FM-1 can also send MIDI clock (CLK OUT, chapter 15).</div>
+</div>
+</div>
+
+<!-- =============================================================== 20 === -->
+<h2 class="chapter" id="trouble"><span class="num">30</span>Troubleshooting</h2>
+<table>
+<thead><tr><th>Problem</th><th>What to try</th></tr></thead>
+<tbody>
+<tr><td class="k">No sound (FM-1)</td><td>Turn up <span class="knob">MASTER</span>. On HOME, check the preset; try slot 1 (INIT SAW). GLO &rarr; VOICE: MASTER above &times;0.00. EDIT: is OSC 1 ON with AMP up? SEL: is the cutoff very low, or both filter mixes at zero?</td></tr>
+<tr><td class="k">Keys do nothing</td><td>A button may be held or stuck: while ENV, LFO, HOME, GLO, SEL, EDIT or SEQ is held the keys pick sources and steps instead of playing. On the sequencer page the keys enter steps.</td></tr>
+<tr><td class="k">A section button "did nothing"</td><td>It acts when released, and not at all if you turned a knob or pressed a key while holding it. Tap it cleanly.</td></tr>
+<tr><td class="k">The LFO page changed kind</td><td>Quick taps on LFO switch the kind. Tap once (alone) for LFO, or undo with HOME + OCT&minus;.</td></tr>
+<tr><td class="k">"NO MOD TARGET"</td><td>That knob cannot be modulated. Use the MATRIX for PAN or global PITCH.</td></tr>
+<tr><td class="k">"ALL 16 MOD SLOTS USED"</td><td>Free one: turn an unused routing to 0, or clear a row in GLO &rarr; MATRIX.</td></tr>
+<tr><td class="k">"UNSAVED EDITS: TURN AGAIN TO LEAVE"</td><td>Save first (SAVE), or turn PRESETS again within 2 seconds to leave without saving.</td></tr>
+<tr><td class="k">Converted preset is quiet or loud</td><td>GLO &rarr; VOICE &rarr; MASTER (up to &times;4). Some Massive levels need more than &times;1.</td></tr>
+<tr><td class="k">Echo shorter than expected (FM-1)</td><td>The FM-1's BBD ECHO tops out at about 0.28 s and its OIL CAN at 357 ms (memory limit). The tablet has longer times.</td></tr>
+<tr><td class="k">Echo TIME shows "*"</td><td>That note value does not fit the echo at this tempo; the longest one that fits plays instead. Raise the tempo or pick a shorter value.</td></tr>
+<tr><td class="k">Sequencer: keys transpose instead of writing notes</td><td>The pattern is running. Stop it for step entry, or press REC to record while it runs.</td></tr>
+<tr><td class="k">Sequencer: "WAIT CLOCK" / wrong tempo</td><td>It is following MIDI clock from your computer or DAW. Start the clock there, or set CLK IN to OFF on the CLOCK page.</td></tr>
+<tr><td class="k">Sequencer: patterns gone after power-off</td><td>Patterns are saved only by SAVE on the sequencer page.</td></tr>
+<tr><td class="k">SEQ does not open the sequencer</td><td>Tap it cleanly: if you press a key while holding SEQ it selects modulator steps instead.</td></tr>
+<tr><td class="k">Converter page finds no FM-1</td><td>Use Chrome or Edge and allow MIDI/SysEx. Choose <b>USB-Midi</b> by hand in both port lists. Close other programs that hold the port.</td></tr>
+<tr><td class="k">Install page will not install</td><td>It must be served from <code>127.0.0.1</code> (not opened as a file) and the FM-1 must answer as stock V15. Restore V15 first.</td></tr>
+<tr><td class="k">FM-1 screen flickers / restarts, no USB</td><td>Boot loop. Recover with the FM-1 Transporter (chapter 9), then install again.</td></tr>
+<tr><td class="k">Plugin window blank or "WebView2 could not start"</td><td>The window names the reason and an error code (HRESULT). Click <span class="tab">Retry</span>. If the runtime is missing, install Microsoft's "WebView2 Runtime". Each host program has its own WebView2 folder, so a running standalone app no longer blocks a DAW's panel.</td></tr>
+<tr><td class="k">ORBIT INPUT does nothing</td><td>Look at the INPUT meter. If it is still: check the DAW's sidechain routing (Live: Sidechain on, Audio From), or in the standalone app untick Mute audio input. If it moves: is the layer's SOURCE or IMPULSE set to INPUT, is its LEVEL up and is the puck near its node? GATE NOTE needs notes.</td></tr>
+<tr><td class="k">Tablet: stuck in the app</td><td>Hold the VINTAGE CHONK title for 3 s to open Android Settings.</td></tr>
+<tr><td class="k">Tablet: crackles</td><td>The app enlarges its audio buffer by itself after a dropout. Close other apps; keep the tablet charged.</td></tr>
+<tr><td class="k">Tablet: no MIDI keyboard</td><td>Use an OTG adapter and a class-compliant keyboard. The strip says NO MIDI IN when none is found; allow the USB permission prompt.</td></tr>
+</tbody></table>
+
+<!-- =============================================================== 21 === -->
+<section class="qref">
+<h2 class="chapter" id="qref"><span class="num">31</span>Quick-reference card (FM-1)</h2>
+<div class="grid2">
+<div>
+<h3>Encoders and knobs</h3>
+<table><tbody>
+<tr><td class="k">KNOB1-4</td><td>the four tiles on screen</td></tr>
+<tr><td class="k">SELECT</td><td>page &middot; step cursor &middot; matrix row &middot; name cursor</td></tr>
+<tr><td class="k">ALGORITHM</td><td>which one (osc, filter, env, slot, effect, macro bank)</td></tr>
+<tr><td class="k">PRESETS</td><td>preset &middot; table &middot; filter type &middot; wave &middot; shape &middot; pattern &middot; save slot</td></tr>
+<tr><td class="k">MASTER</td><td>overall volume</td></tr>
+</tbody></table>
+<h3>Sections (act on release)</h3>
+<table><tbody>
+<tr><td class="k">HOME</td><td>macros 1-4 / again: 5-8 &middot; PRESETS = presets</td></tr>
+<tr><td class="k">EDIT</td><td>OSC 1 &rarr; 2 &rarr; 3 &rarr; MOD OSC &rarr; NOISE</td></tr>
+<tr><td class="k">SEL</td><td>FILTER 1 &rarr; FILTER 2 &rarr; ROUTING</td></tr>
+<tr><td class="k">ENV</td><td>ENV 1 &rarr; 2 &rarr; 3 &rarr; 4 (amp)</td></tr>
+<tr><td class="k">LFO</td><td>slot 5-8 (ALG) &middot; taps: 1 LFO, 2 PERF, 3 STEP</td></tr>
+<tr><td class="k">FX</td><td>OCT FUZZ &rarr; TAPE &rarr; ENSEMBLE &rarr; BBD &rarr; OIL CAN &rarr; REVERB</td></tr>
+<tr><td class="k">GLO</td><td>VOICE &rarr; PITCH &rarr; MATRIX</td></tr>
+<tr><td class="k">SEQ (tap)</td><td>sequencer: STEP &rarr; PATTERN &rarr; CLOCK</td></tr>
+<tr><td class="k">OCT&minus; / OCT+</td><td>octave &minus;2 .. +2 &middot; ARP: not used yet</td></tr>
+<tr><td class="k">SAVE</td><td>name, slot &middot; SAVE again = write &middot; HOME = cancel</td></tr>
+</tbody></table>
+<h3>Step sequencer (SEQ page)</h3>
+<table><tbody>
+<tr><td class="k">PLAY/STOP</td><td>start / stop (light on the beat)</td></tr>
+<tr><td class="k">REC</td><td>record: keys write steps while running, on any page</td></tr>
+<tr><td class="k">keys</td><td>stopped: enter notes &middot; running: hold = transpose</td></tr>
+<tr><td class="k">OCT&minus; / OCT+</td><td>rest / tie &middot; with SEQ held: octave</td></tr>
+<tr><td class="k">SELECT &middot; PRESETS</td><td>step cursor &middot; pattern 1-8</td></tr>
+<tr><td class="k">K1-K4</td><td>STEP: NOTE GATE ACCENT SLIDE &middot; PATTERN: LENGTH RATE SWING TEMPO &middot; CLOCK: CLK IN, CLK OUT</td></tr>
+<tr><td class="k">SAVE</td><td>saves the 8 patterns, tempo, clock</td></tr>
+</tbody></table>
+<h3>Modulation sources (white keys)</h3>
+<table><tbody>
+<tr><td class="k">ENV held</td><td>keys 1-4 = ENV 1-4</td></tr>
+<tr><td class="k">LFO held</td><td>keys 5-8 = slots 5-8</td></tr>
+<tr><td class="k">HOME held</td><td>keys 1-8 = macros 1-8</td></tr>
+<tr><td class="k">GLO held</td><td>9 VEL &middot; 10 KEY &middot; 11 MODW &middot; 12 AFTT &middot; 13 BEND &middot; 14 RAND</td></tr>
+</tbody></table>
+</div>
+<div>
+<h3>Hold + gesture</h3>
+<table><tbody>
+<tr><td class="k">HOME (0.7 s)</td><td>help card</td></tr>
+<tr><td class="k">HOME + OCT&minus;</td><td>undo (16 steps)</td></tr>
+<tr><td class="k">HOME + OCT+</td><td>redo</td></tr>
+<tr><td class="k">ENV / LFO / HOME / GLO + knob</td><td>modulate that knob (depth &plusmn;1 % per detent)</td></tr>
+<tr><td class="k">depth to 0</td><td>removes the routing</td></tr>
+<tr><td class="k">SEQ + white keys</td><td>select Performer / Stepper steps (on their page)</td></tr>
+<tr><td class="k">SEL or EDIT + upper key</td><td>OP1-3 OSC 1-3 &middot; OP4 MOD OSC &middot; OP5 NOISE &middot; OP6 FILTERS &middot; PIT PITCH &middot; GLO VOICE &middot; MONO &middot; POLY &middot; last: MACROS</td></tr>
+</tbody></table>
+<h3>Page knobs</h3>
+<table class="small"><tbody>
+<tr><td class="k">OSC</td><td>WAVE RANGE TUNE AMP / FINE INTENS ROUTE ON</td></tr>
+<tr><td class="k">MOD OSC</td><td>PITCH RING PHASE POS / RING TO PHASE TO POS TO FM TO / FLT FM</td></tr>
+<tr><td class="k">NOISE</td><td>COLOR AMP ROUTE</td></tr>
+<tr><td class="k">FILTER</td><td>CUTOFF RESO DRIVE KEYTRK</td></tr>
+<tr><td class="k">ROUTING</td><td>SER/PAR F1 MIX F2 MIX / OSC1 OSC2 OSC3 NOISE</td></tr>
+<tr><td class="k">ENV</td><td>DELAY ATTACK ATT LVL DECAY / DEC LVL SUS TIM SUSTAIN RELEASE / LOOP</td></tr>
+<tr><td class="k">LFO</td><td>RATE WAVE PHASE SYNC / KEYSYNC UNIPOL</td></tr>
+<tr><td class="k">PERF</td><td>SHAPE LEVEL LOOP ST LOOP END</td></tr>
+<tr><td class="k">STEP</td><td>VALUE GLIDE LOOP ST LOOP END</td></tr>
+<tr><td class="k">TIMING</td><td>RATE SYNC KEYSYNC UNIPOL</td></tr>
+<tr><td class="k">VOICE</td><td>MODE VOICES VEL MASTER</td></tr>
+<tr><td class="k">PITCH</td><td>GLIDE BEND TEMPO</td></tr>
+<tr><td class="k">BBD / OIL P2</td><td>TONE or SMEAR, SYNC</td></tr>
+<tr><td class="k">MATRIX</td><td>SOURCE TARGET DEPTH (SELECT = row)</td></tr>
+</tbody></table>
+</div>
+</div>
+</section>
+
+<!-- =============================================================== 22 === -->
+<h2 class="chapter" id="credits"><span class="num">32</span>Credits, licences and trademarks</h2>
+<h3>Atomic Lounge</h3>
+<p>Atomic Lounge is free software and comes with no warranty. The FM-1 firmware and the Android app are under the
+<b>GNU General Public License, version 3</b> (GPL-3.0-only).</p>
+<p>The Windows VST3 plugin is built with <b>JUCE 8</b>, used under its open-source licence (AGPLv3), so the plugin and its
+public source repository are under the <b>GNU Affero General Public License, version 3</b> (AGPL-3.0-only): the full text is
+in that repository's <code>LICENSE</code> file, and its <code>NOTICE</code> file lists JUCE, the Steinberg VST3 SDK (MIT) and the
+Microsoft WebView2 SDK (BSD-3-Clause).</p>
+<p>Source code of the Windows plugin and standalone app, the releases and their checksums: <b>https://github.com/quietorbit72/atomic-lounge</b>.</p>
+<p>The FM-1 firmware build links M-VAVE's binary FM-1 engine library from the open fm1_open SDK. <code>LICENSE-EXCEPTION.md</code> grants the
+additional permission (GPL-3.0 section 7) to link that library, which keeps <b>its own terms</b>: M-VAVE allows it to be copied,
+linked and redistributed for FM-1 devices only. The SDK's application sources are GPL-3.0 with the same exception; its boot and update
+resources and the V15 image are Apache-2.0.</p>
+<h3>With thanks</h3>
+<ul>
+<li><b>FM-1 Transporter</b> firmware by <b>kurogedelic</b> (MIT licence).</li>
+<li><b>MvaveFM1Unbricker</b> by <b>Quixotic7</b> (MIT licence), which drives the Transporter recovery; it uses kagaimiq's <b>jl-uboot-tool</b> (MIT).</li>
+<li><b>fm1_open</b>, the open FM-1 SDK and updater that the install page uses unchanged.</li>
+<li>The OCT FUZZ, OIL CAN, TWIN TANK and SPRING effects are ports of the developer's own effect designs; TAPE, ENSEMBLE and BBD ECHO are Atomic Lounge's own.</li>
+<li>Typefaces in this guide: Righteous, Nunito and JetBrains Mono, under the SIL Open Font License 1.1.</li>
+</ul>
+<h3>Trademarks</h3>
+<div class="callout note">Native Instruments and Massive are trademarks of Native Instruments; Moog is a trademark of Moog Music;
+M-VAVE and FM-1 belong to their owner; VST is a trademark of Steinberg Media Technologies GmbH. Atomic Lounge is an independent project, not affiliated with or endorsed by them.
+These names appear in this guide only to describe compatibility.</div>
+<p class="small dim" style="margin-top:20pt">This guide describes Atomic Lounge 1.2.1 for Windows (VST3 and standalone, with REGOLITH and ORBIT) and the firmware and app as of 20 November 2026 (with the step sequencer and echo sync). Screens of the FM-1 in this guide are rendered by the
+real firmware user interface running on a desktop emulation (<code>tools/guide_shots</code>); tablet screens come from the app's own test
+run; ORBIT screens are the plugin's own panel page (<code>docs/guide/orbit_shots.mjs</code>) and a capture of the running plugin window.
+Rebuild the guide with <code>python docs/guide/build_guide.py</code>.</p>
+
+</body>
+</html>

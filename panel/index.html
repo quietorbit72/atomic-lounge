@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'none'">
+<title>Vintage Chonk</title>
+<link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+    <div class="cheek left"><canvas class="wood"></canvas></div>
+    <div class="cheek right"><canvas class="wood"></canvas></div>
+    <div id="panel">
+      <div id="upper" class="zone"></div>
+      <div id="lower" class="zone"></div>
+      <div id="panel-foot">
+        <div id="title-hold" aria-label="Vintage Chonk (hold 3 seconds for settings)">
+          <svg id="hold-ring" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" /></svg>
+          <span class="title">VINTAGE CHONK</span>
+        </div>
+        <span class="subtitle">WAVETABLE · ANALOG STYLE</span>
+        <span class="foot-note">THREE OSCILLATORS · TWO FILTERS · EIGHT MODULATORS · EIGHT MACROS</span>
+      </div>
+      <div id="overlay-matrix" class="overlay hidden"></div>
+      <div id="overlay-fx" class="overlay hidden"></div>
+    </div>
+    <div id="trim"></div>
+    <div id="bed">
+      <div id="strip"></div>
+      <div id="wheelbox"></div>
+      <div id="keys"></div>
+    </div>
+    <div id="picker" class="hidden"></div>
+    <div id="dialog" class="hidden"></div>
+    <div id="browser" class="hidden"></div>
+    <div id="tip" class="hidden"><span class="tl"></span><span class="tv"></span></div>
+  </div>
+</div>
+<script src="js/mf_core.js"></script>
+<script src="js/mf_profiles.js"></script>
+<script src="js/panel_model.js"></script>
+<script src="js/factory.js"></script>
+<script src="js/bridge.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

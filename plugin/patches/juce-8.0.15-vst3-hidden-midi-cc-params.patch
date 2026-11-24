@@ -1,0 +1,13 @@
+diff --git a/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp b/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp
+index 40d8a74..05cd6b0 100644
+--- a/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp
++++ b/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp
+@@ -1789,7 +1789,7 @@ private:
+ 
+                 parameters.addParameter (new Vst::Parameter (toString ("MIDI CC " + String (c) + "|" + String (i)),
+                                          static_cast<Vst::ParamID> (p) + parameterToMidiControllerOffset, nullptr, 0, 0,
+-                                         0, Vst::kRootUnitId));
++                                         Vst::ParameterInfo::kIsHidden, Vst::kRootUnitId));
+             }
+         }
+     }

@@ -1,0 +1,4 @@
+Fonts used by the user guide (docs/guide), downloaded from Google Fonts (latin subset, woff2):
+  Righteous (Astigmatic), Nunito (Vernon Adams et al.), JetBrains Mono (JetBrains).
+All three are licensed under the SIL Open Font License, Version 1.1: https://openfontlicense.org
+They are embedded in the PDF and are not part of the GPL-3.0 code.

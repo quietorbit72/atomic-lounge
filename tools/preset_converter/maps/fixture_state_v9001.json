@@ -1,0 +1,34 @@
+{
+ "profile": "fixture-state-v9001",
+ "state_version": 9001,
+ "description": "The Vintage Chonk SYNTHETIC FIXTURE layout (tests/fixtures/make_fixtures.py). It is NOT Massive's real layout: state version 9001 never occurs in Massive files. It exercises the whole pipeline (container, FastLZ, decode, mapping, IR, .mfp, render) until real mappings exist.",
+ "float_params": [
+  {"index": 0, "massive": "OSC1 wavetable", "ir": "oscillators.0.wavetable", "transform": {"kind": "enum", "values": ["BASIC", "PWM", "SYNC", "FORMANT", "ORGAN", "SQUASH"]}, "status": "fixture"},
+  {"index": 1, "massive": "OSC1 wt-position", "ir": "oscillators.0.position", "status": "fixture"},
+  {"index": 2, "massive": "OSC1 amp", "ir": "oscillators.0.amp", "status": "fixture"},
+  {"index": 3, "massive": "OSC1 pitch", "ir": "oscillators.0.semis", "transform": {"kind": "linear", "from": [0, 1], "to": [-24, 24], "round": true}, "status": "fixture"},
+  {"index": 4, "massive": "OSC2 on", "ir": "oscillators.1.enabled", "transform": {"kind": "bool"}, "status": "fixture"},
+  {"index": 5, "massive": "OSC2 wavetable", "ir": "oscillators.1.wavetable", "transform": {"kind": "enum", "values": ["BASIC", "PWM", "SYNC", "FORMANT", "ORGAN", "SQUASH"]}, "status": "fixture"},
+  {"index": 6, "massive": "OSC2 wt-position", "ir": "oscillators.1.position", "status": "fixture"},
+  {"index": 7, "massive": "OSC2 pitch", "ir": "oscillators.1.semis", "transform": {"kind": "linear", "from": [0, 1], "to": [-24, 24], "round": true}, "status": "fixture"},
+  {"index": 8, "massive": "OSC2 amp", "ir": "oscillators.1.amp", "status": "fixture"},
+  {"index": 9, "massive": "Filter 1 type", "ir": "filters.0.type", "transform": {"kind": "enum", "values": ["OFF", "LP2", "LP4", "BP", "HP", "NOTCH"]}, "status": "fixture"},
+  {"index": 10, "massive": "Filter 1 cutoff", "ir": "filters.0.cutoff", "status": "fixture"},
+  {"index": 11, "massive": "Filter 1 resonance", "ir": "filters.0.resonance", "status": "fixture"},
+  {"index": 12, "massive": "ENV4 attack", "ir": "envelopes.3.attack", "status": "fixture"},
+  {"index": 13, "massive": "ENV4 decay", "ir": "envelopes.3.decay", "status": "fixture"},
+  {"index": 14, "massive": "ENV4 sustain", "ir": "envelopes.3.sustain", "status": "fixture"},
+  {"index": 15, "massive": "ENV4 release", "ir": "envelopes.3.release", "status": "fixture"},
+  {"index": 16, "massive": "ENV1 attack", "ir": "envelopes.0.attack", "status": "fixture"},
+  {"index": 17, "massive": "ENV1 decay", "ir": "envelopes.0.decay", "status": "fixture"},
+  {"index": 18, "massive": "ENV1 sustain", "ir": "envelopes.0.sustain", "status": "fixture"},
+  {"index": 19, "massive": "Reverb dry/wet", "ir": "effects.reverb.amount", "status": "fixture"},
+  {"index": 20, "massive": "Echo feedback", "ir": "effects.bbd.feedback", "status": "fixture"}
+ ],
+ "modulation": [
+  {"slot": {"source": "ENV1", "destination": "F1_CUTOFF", "amount": 0.35}, "status": "fixture"},
+  {"slot": {"source": "LFO1", "destination": "OSC1_POS", "amount": 0.15}, "status": "fixture"},
+  {"slot": {"source": "VEL", "destination": "F1_CUTOFF", "amount": 0.1}, "status": "fixture"}
+ ],
+ "notes": ["synthetic fixture: demonstrates the pipeline, not Massive fidelity"]
+}

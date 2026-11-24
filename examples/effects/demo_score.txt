@@ -1,0 +1,24 @@
+# Vintage Chonk effects demo riff (ms on/off note velocity)
+0 on 45 110
+220 off 45
+250 on 48 100
+470 off 48
+500 on 52 100
+720 off 52
+750 on 55 110
+970 off 55
+1000 on 57 120
+1600 off 57
+1800 on 57 100
+1800 on 60 90
+1800 on 64 90
+1800 on 69 80
+3300 off 57
+3300 off 60
+3300 off 64
+3300 off 69
+3600 on 69 110
+3800 off 69
+3900 on 72 110
+4100 off 72
+6500 end

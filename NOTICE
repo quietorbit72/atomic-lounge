@@ -1,0 +1,81 @@
+Atomic Lounge (formerly Vintage Chonk)
+Copyright (C) 2026 the Atomic Lounge contributors
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero
+General Public License as published by the Free Software Foundation, version 3 (AGPL-3.0-only). It is
+distributed WITHOUT ANY WARRANTY; see LICENSE for the full text.
+
+Everything in this repository is original work of the copyright holder above, except where this file says
+otherwise. In particular:
+
+  * dsp/ (the sound engine) is original code. The effects in dsp/effects/chroma (OCT FUZZ, OIL CAN, TWIN
+    TANK, SPRING) are ports of the copyright holder's own effect code, written earlier for a personal
+    Chroma Console effects project; they contain no third-party code. Chroma Console is a product of
+    Hologram Electronics, which is not affiliated with this project.
+  * The factory presets, waveforms and panel artwork are original. No Native Instruments software,
+    presets, wavetables, samples or documentation are included. The .nmsv reader (tools/preset_decoder)
+    is an independent implementation of the container format; its parameter maps
+    (tools/preset_converter/maps) were measured by the copyright holder.
+
+-------------------------------------------------------------------------------------------------------------
+Third-party code used by the VST3 plugin (fetched at build time by plugin/fetch_deps.ps1, not in this
+repository; versions and checksums are pinned in that script)
+-------------------------------------------------------------------------------------------------------------
+
+JUCE 8.0.15 - https://github.com/juce-framework/JUCE
+  Copyright (c) Raw Material Software Limited. Used under the GNU Affero General Public License v3
+  (JUCE's open-source licence option). This is why a distributed Atomic Lounge plugin binary is licensed
+  under AGPLv3 and comes with its complete source (this repository).
+  MODIFIED: one file, modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp, is changed by
+  plugin/patches/juce-8.0.15-vst3-hidden-midi-cc-params.patch (the MIDI CC emulation parameters are
+  flagged kIsHidden). The patch is part of this repository and applied by plugin/fetch_deps.ps1.
+  The JUCE modules the plugin links contain third-party code under these licences (from JUCE's LICENSE.md):
+    Steinberg VST3 SDK (MIT), zlib (zlib licence), pnglib (zlib/libpng licence), jpeglib (Independent JPEG
+    Group licence: "this software is based in part on the work of the Independent JPEG Group"), FLAC
+    (BSD), Ogg Vorbis (BSD), HarfBuzz (Old MIT), SheenBidi (Apache-2.0), CHOC (ISC) including QuickJS
+    (MIT). The full texts are in the JUCE source tree next to each component.
+
+Steinberg VST3 SDK - https://github.com/steinbergmedia/vst3sdk
+  Copyright (c) Steinberg Media Technologies GmbH. MIT licence. The plugin uses the VST3 SDK headers inside
+  JUCE; plugin/fetch_deps.ps1 -Validator also fetches v3.8.1_build_84 to build Steinberg's validator.
+  VST is a trademark of Steinberg Media Technologies GmbH, registered in Europe and other countries.
+
+Microsoft WebView2 SDK 1.0.4314.35 - https://www.nuget.org/packages/Microsoft.Web.WebView2
+  Copyright (C) Microsoft Corporation. All rights reserved. BSD-3-Clause:
+    Redistribution and use in source and binary forms, with or without modification, are permitted
+    provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright notice, this list of conditions and
+      the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+      and the following disclaimer in the documentation and/or other materials provided with the
+      distribution.
+    * The name of Microsoft Corporation, or the names of its contributors may not be used to endorse or
+      promote products derived from this software without specific prior written permission.
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+    PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+    ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+    LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+    TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+    ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  The plugin links the SDK's static loader (WebView2LoaderStatic.lib) and builds against its headers.
+
+-------------------------------------------------------------------------------------------------------------
+Fonts
+-------------------------------------------------------------------------------------------------------------
+
+The user guide (docs/guide) uses Righteous, Nunito and JetBrains Mono, under the SIL Open Font License 1.1:
+copyright lines and the full licence in docs/guide/fonts/OFL.txt. The PDF also embeds small subsets of
+Windows system fonts (Arial, Times New Roman, Segoe UI) that the PDF printer used for a few symbols. The web
+panel uses system fonts only and ships no font files.
+
+-------------------------------------------------------------------------------------------------------------
+Trademarks
+-------------------------------------------------------------------------------------------------------------
+
+Native Instruments and Massive are trademarks of Native Instruments GmbH. Moog is a trademark of Moog Music
+Inc. M-VAVE and FM-1 belong to their owner. Chroma Console is a product of Hologram Electronics. Atomic
+Lounge is an independent project, not affiliated with or endorsed by any of them; these names are used only to
+describe compatibility (Atomic Lounge converts Native Instruments Massive .nmsv presets and has firmware that
+runs on the M-VAVE FM-1).
